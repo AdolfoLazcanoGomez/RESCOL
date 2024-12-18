@@ -1,0 +1,32 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Datos de debug 🪲: 
+
+Nombre de la instancia: RencaChiquito
+Comentario: Casoreal1
+Número de nodos: 16
+Número de arcos obligatorios: 16
+No hay arcos opcionales
+Número de nodos iniciales: 1
+Número de nodos terminales: 1
+Número de nodos terminales: 1
+No hay restricciones
+
+Datos: 
+Nodos iniciales: 
+32709 
+
+Nodos terminales: 
+32677 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⌚Época 0
+Tiempo de ejecución: 1.00951 segundos
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+✨🏆 Mejor resultado 🏆✨
+
+Mejor hormiga: 27 🐜🥇
+Mejor costo: 1153.71 ⏩
+Mejor longitud: 21 ⚡
+El directorio de salida:./resultados
+La solución es: 

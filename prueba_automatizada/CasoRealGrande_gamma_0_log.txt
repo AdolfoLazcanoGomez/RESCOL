@@ -1,0 +1,32 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Datos de debug 🪲: 
+
+Nombre de la instancia: Instanciarealgrande
+Comentario: casoreal
+Número de nodos: 204
+Número de arcos obligatorios: 293
+No hay arcos opcionales
+Número de nodos iniciales: 1
+Número de nodos terminales: 1
+Número de nodos terminales: 1
+No hay restricciones
+
+Datos: 
+Nodos iniciales: 
+31837 
+
+Nodos terminales: 
+31492 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⌚Época 0
+Tiempo de ejecución: 1.49609 segundos
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+✨🏆 Mejor resultado 🏆✨
+
+Mejor hormiga: 10 🐜🥇
+Mejor costo: 81708.6 ⏩
+Mejor longitud: 857 ⚡
+El directorio de salida:./resultados
+La solución es: 

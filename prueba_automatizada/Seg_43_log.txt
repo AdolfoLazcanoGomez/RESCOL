@@ -1,0 +1,32 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Datos de debug 🪲: 
+
+Nombre de la instancia: Seg_10
+Comentario: 
+Número de nodos: 333
+Número de arcos obligatorios: 172
+Número de arcos opcionales: 84
+Número de nodos iniciales: 1
+Número de nodos terminales: 1
+Número de nodos terminales: 1
+No hay restricciones
+
+Datos: 
+Nodos iniciales: 
+2050 
+
+Nodos terminales: 
+2050 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⌚Época 0
+Tiempo de ejecución: 1.57701 segundos
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+✨🏆 Mejor resultado 🏆✨
+
+Mejor hormiga: 15 🐜🥇
+Mejor costo: 53312.6 ⏩
+Mejor longitud: 746 ⚡
+El directorio de salida:./resultados
+La solución es: 
