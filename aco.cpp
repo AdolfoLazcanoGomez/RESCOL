@@ -776,7 +776,7 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
     }
     else {
 
-        if (hormiga.feromonas_locales[arco].cantidad < umbral_inferior) hormiga.feromona s_locales[arco].cantidad = umbral_inferior;
+        if (hormiga.feromonas_locales[arco].cantidad < umbral_inferior) hormiga.feromonas_locales[arco].cantidad = umbral_inferior;
         else hormiga.feromonas_locales[arco].cantidad *= (1 - rho);
         hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recorrido;
     }
