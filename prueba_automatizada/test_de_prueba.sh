@@ -4,7 +4,7 @@
 instancias_dir="/home/pcontreras/experimentos_rescol/Instancias_training"
 
 # Comando base
-comando_base="/home/pcontreras/rescolants/RESCOL"
+comando_base="/home/alazcano/RESCOL/RESCOL"
 
 # Parámetros fijos
 parametros="--metodo 0 --num-hormigas 30 --salida-dijkstra --beta0 --alfa 4.81 --rho 0.24 --tau-as 3.56 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 1 --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol --semilla 1"
@@ -20,7 +20,7 @@ for instancia in "$instancias_dir"/*.txt; do
     
     # Construir el comando completo
     nombre_instancia=$(basename "$instancia" .txt)
-    log_file="/home/pcontreras/rescolants/prueba_automatizada/${nombre_instancia}_log.txt"
+    log_file="/home/alazcano/RESCOL/prueba_automatizada/${nombre_instancia}_log.txt"
 
     comando_completo="$comando_base $instancia $parametros"
     echo "Ejecutando $nombre_instancia"
