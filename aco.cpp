@@ -1065,11 +1065,10 @@ bool ACO::enNodoTerminal(Hormiga &hormiga)
 
 /*
     Muestra la solución
-    Este método muestra la solución, mostrando el camino y el costo de cada hormiga.
+    Este método muestra la solución, mostrando el camino por cada camion y el costo de la hormiga.
 */
 void ACO::mostrar_solucion(bool show_solucion)
 {
-
     for (int i = 0; i < 161; i++)
         cout << "-";
     cout << endl;
@@ -1080,9 +1079,11 @@ void ACO::mostrar_solucion(bool show_solucion)
         {
             for (auto &camion : mejor_solucion.vector_camiones){
                 cout << "Camion " << index <<": ";
+
                 for (auto &arco : camion->camino_final)
                 {
-                    cout << arco.origen->id << " -> ";
+                    if (&arco != &camion->camino_final.back())
+                        cout << arco.origen->id << " -> ";
                     //if (arco.origen->id == )
                 }
                 // cout << arco.destino->id << endl;
@@ -1102,8 +1103,6 @@ void ACO::mostrar_solucion(bool show_solucion)
         cout << "Mejor costo: " << mejor_solucion.costo_camino << " ⏩" << endl;
     }
     cout << "Mejor longitud: " << mejor_solucion.longitud_final_camiones << " ⚡" << endl;
-
-    
 }
 
 // void ACO::exportar_solucion(std::chrono::microseconds duration, ACOArgs parametros_base)
