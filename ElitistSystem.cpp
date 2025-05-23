@@ -29,7 +29,7 @@ void ElitistSystem::resolver()
         limpiar();
         iteraciones++;
     }
-};
+}
 
 void ElitistSystem::iterar()
 {
@@ -112,5 +112,6 @@ void ElitistSystem::set_parametrosACS(ACOArgs parametros)
     //csi = parametros.csi;
     alfa = 1;
     tau = 1; // grafo->nodos.size(); // TODO: Revisar esto
+    alfa = parametros.alfa;
 }
 

@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 
     //aco->abrir_file();
     auto start = std::chrono::high_resolution_clock::now();
-    for (aco->epoca_actual; aco->epoca_actual < aco->epocas; aco->epoca_actual++)
+    for (; aco->epoca_actual < aco->epocas; aco->epoca_actual++)
     {
         cout << "⌚"<< "Época " << aco->epoca_actual << endl;
         aco->resolver();

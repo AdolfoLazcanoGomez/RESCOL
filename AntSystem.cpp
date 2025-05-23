@@ -130,7 +130,7 @@ void AntSystem::inicializar_feromonas()
 }
 
 void AntSystem::reemplazar_hormiga(){ 
-    for(int i = 0; i < hormigas.size(); i++){ 
+    for(size_t i = 0; i < hormigas.size(); i++){ 
         if(solucionCompleta(hormigas[i])){ 
             mejor_solucion = hormigas[i];
             return; 

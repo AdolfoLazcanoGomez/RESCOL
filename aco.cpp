@@ -176,9 +176,10 @@ void ACO::construirSolucion(Hormiga &hormiga)
     bool flag_camion = false;
 
     
-
+    cout << "Entrada while" << endl;
     while (!solucionCompleta(hormiga))
     {
+        cout << "Entrada while" << endl;
         auto start = std::chrono::high_resolution_clock::now();
         timeout_flag = false;
 
@@ -1425,10 +1426,12 @@ void ACO::set_parametros(const ACOArgs parametros_base)
             //Para debug
             cout << "Usando iteraciones" << endl;
             iteraciones_max = parametros_base.iteraciones_max;        
-            //
+            cout << iteraciones_max << endl;
 
         }
     } 
+    cout << usar_tiempo << endl;
+    cout << "testtest"<< endl;
     usar_oscilador = parametros_base.oscilador;
     usar_bd = parametros_base.conectar_bd;
     beta = parametros_base.beta;

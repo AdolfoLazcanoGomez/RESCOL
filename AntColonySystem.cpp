@@ -50,7 +50,7 @@ void AntColonySystem::resolver()
         limpiar();
         iteraciones++;
     }*/
-};
+}
 
 void AntColonySystem::iterar()
 {
@@ -125,7 +125,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
         for (auto i : grafo->informacion_heuristica[hormiga.nodo_actual->id]){
             cantidad = i.second;
             cantidad2 = feromonas[i.first].cantidad;
-            double calculo = cantidad2 * pow(cantidad,beta);
+            //double calculo = cantidad2 * pow(cantidad,beta);
 
             if (cantidad2 > cantidad_max){
                 cantidad_max = cantidad;
