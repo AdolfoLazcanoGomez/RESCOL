@@ -73,7 +73,7 @@ void MinMax::resolver()
             iteraciones++;
         }
     }
-};
+}
 
 void MinMax::iterar()
 {

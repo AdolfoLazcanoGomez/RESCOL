@@ -124,6 +124,8 @@ protected:
     int cantidad_sin_nuevo_arco = 0;
 
 public:
+    virtual ~ACO() {}
+    //virtual void ejecutar() = 0;
     std::string nombre_instancia; // Nombre de la instancia
     std::string ruta_archivo_salida_csv;
     std::string ruta_archivo_config_salida_csv;

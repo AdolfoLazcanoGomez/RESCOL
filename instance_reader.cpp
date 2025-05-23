@@ -63,7 +63,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
         std::getline(infile, lineaDato);
         std::istringstream arcStream(lineaDato);
         std::string bi_or_uni;
-        double id, origen, destino, costo_recorrido, costo_recoleccion;
+        double origen, destino, costo_recorrido, costo_recoleccion;
         if (!(arcStream >> bi_or_uni >> origen >> destino >> costo_recorrido >> costo_recoleccion))
         {
             // Error de formato
@@ -223,7 +223,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
         std::getline(infile, lineaDato);
         std::istringstream arcStream(lineaDato);
         std::string bi_or_uni;
-        double id, origen, destino, costo_recorrido, costo_recoleccion;
+        double origen, destino, costo_recorrido, costo_recoleccion;
         if (!(arcStream >> bi_or_uni >> origen >> destino >> costo_recorrido >> costo_recoleccion))
         {
             // Error de formato
@@ -386,7 +386,6 @@ Graph leerInstancia(const std::string &nombre_archivo,
         {
             std::getline(infile, lineaDato);
             std::istringstream arcStream(lineaDato);
-            int id;
             double x, y;
             if (!(arcStream >> x >> y))
             {
@@ -418,7 +417,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
             {
                 std::getline(infile, lineaDato);
                 std::istringstream arcStream(lineaDato);
-                int id, nodo1, nodo2, nodo3;
+                int nodo1, nodo2, nodo3;
                 if (!(arcStream >> nodo1 >> nodo2 >> nodo3))
                 {
                     // Error de formato
@@ -444,7 +443,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
     {
         std::getline(infile, lineaDato);
         std::istringstream arcStream(lineaDato);
-        int id, nodo;
+        int nodo;
         if (!(arcStream >> nodo))
         {
             // Error de formato
@@ -464,7 +463,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
         {
             std::getline(infile, lineaDato);
             std::istringstream arcStream(lineaDato);
-            int id, nodo;
+            int nodo;
             if (!(arcStream >> nodo))
             {
                 // Error de formato

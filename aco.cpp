@@ -173,7 +173,7 @@ void ACO::construirSolucion(Hormiga &hormiga)
     Nodo *siguiente = nullptr;
     acumulador_tiempo = 0;
     int aux = 0;
-    bool flag_camion = false;
+    //bool flag_camion = false;
 
     
     cout << "Entrada while" << endl;
@@ -200,7 +200,7 @@ void ACO::construirSolucion(Hormiga &hormiga)
             std::vector<Nodo*> ruta_nueva = findPath(hormiga, ArcosNoVisitadoObligatorios(hormiga, 0));
             ruta_nueva.push_back(ArcosNoVisitadoObligatorios(hormiga, 1));
             sin_nuevo = 0;
-            for(int i = 0; i < ruta_nueva.size(); i++) {
+            for(size_t i = 0; i < ruta_nueva.size(); i++) {
                 if(hormiga.nodo_actual->id != ruta_nueva[i]->id) {
                     visitar(hormiga, ruta_nueva[i], aux);
                 }
@@ -353,7 +353,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
     double tau_eta = 0.0;
     int pasadas = 0;
     int obligatorios_actuales = 0;
-    bool flag_falla = false;
+    //bool flag_falla = false;
     bool pasado_una_vez_por_obligatorias = false;
     Nodo *nodo = nullptr;
     std::unordered_map<Arco *, double> probabilidad;
@@ -377,7 +377,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
     if(sin_nuevo >= LimiteDeMejoras && !hormiga.vector_camiones[aux]->camino_tour.empty()){
         for (auto i : grafo->informacion_heuristica[hormiga.nodo_actual->id])
         {
-            flag_falla = true;
+            //flag_falla = true;
             if (!hormiga.vector_camiones[aux]->camino_tour.empty()){
                 // si no esta vacio, se empiezan a comprobar los casos
                 if (i.first->bidireccional == true)
@@ -933,7 +933,7 @@ void ACO::buscarDijkstra(Hormiga &hormiga, int &aux)
     }
 
     // Actualizar la hormiga con la ruta encontrada
-    for (int i = 0; i < path.size(); ++i) {
+    for (size_t i = 0; i < path.size(); ++i) {
         int vIndex = path[i];
         int v = indexToNode[vIndex];
         Arco *arco = nullptr;
@@ -984,7 +984,7 @@ int ACO::contarArcosNoVisitadosObligatorios(Hormiga &hormiga) {
 }
 
 Nodo* ACO::ArcosNoVisitadoObligatorios(Hormiga &hormiga, int flag) {
-    int count = 0;
+    //int count = 0;
     Nodo* aux;
     for (const auto &par : hormiga.arcos_no_visitados) {
         Arco *arco = par.first;
@@ -1459,3 +1459,4 @@ Hormiga ACO::get_mejor_solucion()
 {
     return mejor_solucion;
 }
+
