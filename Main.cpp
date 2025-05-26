@@ -120,7 +120,14 @@ int main(int argc, char *argv[])
         bfs(grafo.metadatos.nodos_iniciales[0].id, grafo.informacion_heuristica);
     }
     ///////////////////////
+    if (!grafo.metadatos.nodos_iniciales.empty()) {
     bfs(grafo.metadatos.nodos_iniciales[0].id, grafo.informacion_heuristica);
+    } else {
+    std::cerr << "[ERROR] grafo.metadatos.nodos_iniciales está vacío. Revisa el archivo de entrada o la inicialización." << std::endl;
+    exit(1);  // o maneja el error apropiadamente
+    }
+
+    //bfs(grafo.metadatos.nodos_iniciales[0].id, grafo.informacion_heuristica);
     //bfs(32308, grafo.informacion_heuristica);
     //////////////////TEST
 
