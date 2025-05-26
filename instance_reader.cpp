@@ -439,18 +439,37 @@ Graph leerInstancia(const std::string &nombre_archivo,
     std::getline(infile, lineaDato);
 
     // Leer depositos o nodos iniciales
+    // std::cout << "NODOS_INICIALES: " << encabezado["NODOS_INICIALES"] << std::endl;
+    // for (int i = 0; i < std::stoi(encabezado["NODOS_INICIALES"]); i++)
+    // {
+    //     std::getline(infile, lineaDato);
+    //     std::istringstream arcStream(lineaDato);
+    //     int nodo;
+    //     if (!(arcStream >> nodo))
+    //     {
+    //         // Error de formato
+    //         std::cerr << "Error en el formato del archivo" << std::endl;
+    //         return Graph();
+    //     }
+    //     g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
+    // }
+
     for (int i = 0; i < std::stoi(encabezado["NODOS_INICIALES"]); i++)
     {
-        std::getline(infile, lineaDato);
-        std::istringstream arcStream(lineaDato);
-        int nodo;
-        if (!(arcStream >> nodo))
-        {
-            // Error de formato
-            std::cerr << "Error en el formato del archivo" << std::endl;
+        if (!std::getline(infile, lineaDato)) {
+            std::cerr << "[ERROR] Fin de archivo inesperado leyendo nodos iniciales" << std::endl;
             return Graph();
         }
-        g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
+
+        std::istringstream arcStream(lineaDato);
+        size_t nodo;
+        if (!(arcStream >> nodo)) {
+            std::cerr << "[ERROR] Línea mal formateada al leer nodo inicial: " << lineaDato << std::endl;
+            return Graph();
+        }
+
+    std::cout << "Agregando nodo inicial: " << nodo << std::endl;
+    g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
     }
 
     // Saltarse header Terminal
