@@ -176,10 +176,8 @@ void ACO::construirSolucion(Hormiga &hormiga)
     //bool flag_camion = false;
 
     
-    cout << "Entrada while" << endl;
     while (!solucionCompleta(hormiga))
     {
-        cout << "Entrada while" << endl;
         auto start = std::chrono::high_resolution_clock::now();
         timeout_flag = false;
 
@@ -1101,7 +1099,7 @@ void ACO::mostrar_solucion(bool show_solucion)
     {
         cout << "Mejor costo: " << "inf" << " ⏩" << endl;
     } else {
-        cout << "Mejor costo: " << mejor_solucion.costo_camino << " ⏩" << endl;
+        std::cout << "Mejor costo: " << std::fixed << std::setprecision(3) << mejor_solucion.costo_camino << " ⏩" << std::endl;
     }
     cout << "Mejor longitud: " << mejor_solucion.longitud_final_camiones << " ⚡" << endl;
 }
@@ -1430,8 +1428,6 @@ void ACO::set_parametros(const ACOArgs parametros_base)
 
         }
     } 
-    cout << usar_tiempo << endl;
-    cout << "testtest"<< endl;
     usar_oscilador = parametros_base.oscilador;
     usar_bd = parametros_base.conectar_bd;
     beta = parametros_base.beta;
