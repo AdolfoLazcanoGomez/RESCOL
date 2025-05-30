@@ -1,0 +1,10 @@
+parameterFile <- "/home/alazcano/RESCOL/Experimentation/parametros.txt"
+
+trainInstancesDir <- "/home/alazcano/RESCOL/Instancias/test_container/test_3000"
+
+targetRunner <- "/home/alazcano/RESCOL/Instancias/test_container/test_3000/Experimentation/target_runner.sh"
+
+maxExperiments <- 3000
+testType <- "F-test"
+elitist <- 1
+boundMax <- 20
