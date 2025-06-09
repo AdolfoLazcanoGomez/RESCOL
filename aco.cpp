@@ -21,9 +21,9 @@ using namespace std;
 ACO::~ACO(){
     for (auto &hormiga : hormigas){
         for (Camion* c : hormiga.vector_camiones)
-        delete c;
+            delete c;
+        hormiga.vector_camiones.clear();
     }
-    hormiga.vector_camiones.clear();
 }
 
 
@@ -1308,9 +1308,6 @@ void ACO::limpiar()
     {
 
         hormiga.copia_camino_tour.clear();
-        for (Camion* c : hormiga.vector_camiones)
-            delete c;
-        hormiga.vector_camiones.clear();
         //limpiar_camiones(hormiga);
         // hormiga.camino_salida.clear();
         // hormiga.camino_final.clear();
@@ -1347,12 +1344,12 @@ void ACO::reset()
         arco.second->veces_recorrida = 0;
 }
 
-void ACO::limpiar_camiones(Hormiga &hormiga)
-{
-    for (auto *camion : hormiga.vector_camiones) 
-        delete camion;
-    hormiga.vector_camiones.clear();
-}
+// void ACO::limpiar_camiones(Hormiga &hormiga)
+// {
+//     for (auto *camion : hormiga.vector_camiones) 
+//         delete camion;
+//     hormiga.vector_camiones.clear();
+// }
 
 /*void ACO::abrir_file()
 {
