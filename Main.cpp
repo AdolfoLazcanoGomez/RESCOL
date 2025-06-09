@@ -65,7 +65,14 @@ int main(int argc, char *argv[])
     } else {
         inicializar_generador(parametros_base.semilla);  
     }
-    grafo = leerInstancia(parametros_base.nombre_instancia, config.leer_restricciones, config.leer_coordenadas);
+    try {
+        std::cout << "Instancia recibida: " << parametros_base.nombre_instancia << std::endl;
+        grafo = leerInstancia(parametros_base.nombre_instancia, config.leer_restricciones, config.leer_coordenadas);
+    } catch (const std::exception& e) {
+        std::cerr << "[ERROR] Fallo al leer la instancia: " << e.what() << std::endl;
+        return 1;
+    }
+
     if (config.debug)
     {
         cout << endl;
@@ -175,7 +182,7 @@ int main(int argc, char *argv[])
     //     std::system(comando2.c_str());     
     // }
 
-
+    liberar_memoria(grafo);
     delete aco;
     return 0;
 }
