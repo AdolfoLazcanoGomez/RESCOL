@@ -33,3 +33,5 @@ mejor_costo=$(grep -oP 'Mejor costo: \K[0-9.]*' $log_file)
 
 echo "$mejor_costo"
 rm $log_file
+
+#nohup /home/alazcano/R/x86_64-redhat-linux-gnu-library/4.0/irace/bin/irace --scenario /home/alazcano/RESCOL/Instancias/test_container/test_3000/experimentation/scenario.txt --parallel 40 > irace.log 2>&1 &

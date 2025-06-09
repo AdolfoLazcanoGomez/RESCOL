@@ -18,7 +18,13 @@
 using namespace std;
 
 
-
+ACO::~ACO(){
+    for (auto &hormiga : hormigas){
+        for (Camion* c : hormiga.vector_camiones)
+        delete c;
+    }
+    hormiga.vector_camiones.clear();
+}
 
 
 /* Constructor de la clase ACO
@@ -207,9 +213,8 @@ void ACO::construirSolucion(Hormiga &hormiga)
             {
             siguiente = eligeSiguiente(hormiga, aux);
             if (!siguiente){
-
                 if(usaDijkstra){
-                    buscarDijkstra(hormiga,aux); 
+                    buscarDijkstra(hormiga,aux);
                     hormiga.copia_camino_tour.clear();
                 }
                 Camion *camion = new Camion();
@@ -240,13 +245,12 @@ void ACO::construirSolucion(Hormiga &hormiga)
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         acumulador_tiempo += duration.count();
     }   
-        file << "Epoca: " << epoca_actual << ", Evaluacion: " << evaluaciones << ", Mejor costo: " << mejor_costo << endl;
-        // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_tour.begin(), hormiga.copia_camino_tour.end());
-        // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_salida.begin(), hormiga.copia_camino_salida.end());
-        hormiga.longitud_final_camiones += total_camino_tour_camion(hormiga) + total_camino_salida_camion(hormiga);
-        hormiga.saltosSalida = hormiga.longitud_final_camiones - total_camino_tour_camion(hormiga); //no se para que es
-
-        evaluaciones++;
+    file << "Epoca: " << epoca_actual << ", Evaluacion: " << evaluaciones << ", Mejor costo: " << mejor_costo << endl;
+    // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_tour.begin(), hormiga.copia_camino_tour.end());
+    // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_salida.begin(), hormiga.copia_camino_salida.end());
+    hormiga.longitud_final_camiones += total_camino_tour_camion(hormiga) + total_camino_salida_camion(hormiga);
+    hormiga.saltosSalida = hormiga.longitud_final_camiones - total_camino_tour_camion(hormiga); //no se para que es
+    evaluaciones++;
 }
 
 double ACO::total_camino_tour_camion(Hormiga &hormiga){
@@ -1304,7 +1308,10 @@ void ACO::limpiar()
     {
 
         hormiga.copia_camino_tour.clear();
+        for (Camion* c : hormiga.vector_camiones)
+            delete c;
         hormiga.vector_camiones.clear();
+        //limpiar_camiones(hormiga);
         // hormiga.camino_salida.clear();
         // hormiga.camino_final.clear();
         hormiga.solucion_valida = true;
@@ -1324,7 +1331,6 @@ void ACO::limpiar()
         hormiga.costo_camino = 0;
         hormiga.feromonas_locales = feromonas;
         hormiga.nodo_actual = &grafo->metadatos.nodos_iniciales[int((generar_numero_aleatorio(0, grafo->metadatos.nodos_iniciales.size() - 1)))];
-
     }
 }
 void ACO::limpiar_rastro()
@@ -1339,6 +1345,13 @@ void ACO::reset()
     limpiar();
     for (auto &arco : grafo->arcos)
         arco.second->veces_recorrida = 0;
+}
+
+void ACO::limpiar_camiones(Hormiga &hormiga)
+{
+    for (auto *camion : hormiga.vector_camiones) 
+        delete camion;
+    hormiga.vector_camiones.clear();
 }
 
 /*void ACO::abrir_file()
@@ -1455,4 +1468,5 @@ Hormiga ACO::get_mejor_solucion()
 {
     return mejor_solucion;
 }
+
 
