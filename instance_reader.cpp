@@ -102,19 +102,22 @@ Graph leerInstancia(const std::string &nombre_archivo,
             g.nodos[destino].entrante.push_back(*arco);
 
             // nodos fantasma nodo origen
-            Subnodo *subnodo_saliente_origen = new Subnodo;
+            // Subnodo *subnodo_saliente_origen = new Subnodo;
 
-            subnodo_saliente_origen->tipo = 2; // 2: saliente
+            // subnodo_saliente_origen->tipo = 2; // 2: saliente
 
-            g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+            // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+            Subnodo subnodo_saliente_origen;
+            subnodo_saliente_origen.tipo = 2;
+            g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
 
             // nodos fantasma nodo destino
-            Subnodo *subnodo_entrante_destino = new Subnodo;
-
-
-            subnodo_entrante_destino->tipo = 1; // 1: entrante
-
-            g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+            // Subnodo *subnodo_entrante_destino = new Subnodo;
+            // subnodo_entrante_destino->tipo = 1; // 1: entrante
+            // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+            Subnodo subnodo_entrante_destino;
+            subnodo_entrante_destino.tipo = 1;
+            g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
 
             // Actualizar la información heurística
             double costo = arco->costo_recorrido;
@@ -165,38 +168,54 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 g.nodos[destino].saliente.push_back(*arcoVuelta);
 
                 // nodos fantasma nodo origen
-                Subnodo *subnodo_entrante_origen = new Subnodo;
-                Subnodo *subnodo_saliente_origen = new Subnodo;
+                // Subnodo *subnodo_entrante_origen = new Subnodo;
+                // Subnodo *subnodo_saliente_origen = new Subnodo;
+                Subnodo subnodo_entrante_origen;
+                Subnodo subnodod_saliente_origen;
 
-                subnodo_entrante_origen->id_secundario = id_secundario;
-                subnodo_saliente_origen->id_secundario = id_secundario;
+                // subnodo_entrante_origen->id_secundario = id_secundario;
+                // subnodo_saliente_origen->id_secundario = id_secundario;
+                subnodo_entrante_origen.id_secundario = id_secundario;
+                subnodo_saliente_origen.id_secundario = id_secundario;
                 id_secundario++;
 
-                subnodo_entrante_origen->tipo = 1; // 1: entrante
-                subnodo_saliente_origen->tipo = 2; // 2: saliente
+                // subnodo_entrante_origen->tipo = 1; // 1: entrante
+                // subnodo_saliente_origen->tipo = 2; // 2: saliente
+                // subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
+                // subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
 
-                subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
-                subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
+                subnodo_entrante_origen.tipo = 1;
+                subnodo_saliente_origen.tipo = 2;
 
-                g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
-                g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+                // g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
+                // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+                g.nodos[origen].subnodos.push_back(subnodo_entrante_origen);
+                g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
 
                 // nodos fantasma nodo destino
-                Subnodo *subnodo_entrante_destino = new Subnodo;
-                Subnodo *subnodo_saliente_destino = new Subnodo;
+                // Subnodo *subnodo_entrante_destino = new Subnodo;
+                // Subnodo *subnodo_saliente_destino = new Subnodo;
+                Subnodo subnodo_entrante_destino;
+                Subnodo subnodo_saliente_destino;
 
-                subnodo_entrante_destino->id_secundario = id_secundario;
-                subnodo_saliente_destino->id_secundario = id_secundario;
+                // subnodo_entrante_destino->id_secundario = id_secundario;
+                // subnodo_saliente_destino->id_secundario = id_secundario;
+                subnodo_entrante_destino.id_secundario = id_secundario;
+                subnodo_saliente_destino.id_secundario = id_secundario;
                 id_secundario++;
 
-                subnodo_entrante_destino->tipo = 1; // 1: entrante
-                subnodo_saliente_destino->tipo = 2; // 2: saliente
+                // subnodo_entrante_destino->tipo = 1; // 1: entrante
+                // subnodo_saliente_destino->tipo = 2; // 2: saliente
+                // subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
+                // subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
 
-                subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
-                subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
+                subnodo_entrante_destino.tipo = 1; // 1: entrante
+                subnodo_saliente_destino.tipo = 2; // 2: saliente
 
-                g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-                g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
+                // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+                // g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
+                g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
+                g.nodos[destino].subnodos.push_back(subnodo_saliente_destino);
 
                 // Actualizar la información heurística
                 double costo = arcoIda->costo_recorrido;
@@ -263,19 +282,21 @@ Graph leerInstancia(const std::string &nombre_archivo,
             g.nodos[destino].entrante.push_back(*arco);
 
             // nodos fantasma nodo origen
-            Subnodo *subnodo_saliente_origen = new Subnodo;
+            // Subnodo *subnodo_saliente_origen = new Subnodo;
+            // subnodo_saliente_origen->tipo = 2; // 2: saliente
+            // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
-            subnodo_saliente_origen->tipo = 2; // 2: saliente
-
-            g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+            Subnodo subnodo_saliente_origen;
+            subnodo_saliente_origen.tipo = 2;
+            g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
 
             // nodos fantasma nodo destino
-            Subnodo *subnodo_entrante_destino = new Subnodo;
-
-
-            subnodo_entrante_destino->tipo = 1; // 1: entrante
-
-            g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+            // Subnodo *subnodo_entrante_destino = new Subnodo;
+            // subnodo_entrante_destino->tipo = 1; // 1: entrante
+            // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+            Subnodo subnodo_entrante_destino;
+            subnodo_entrante_destino.tipo = 1;
+            g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
 
             // Actualizar la información heurística
             double costo = arco->costo_recorrido;
@@ -327,28 +348,40 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 g.nodos[destino].saliente.push_back(*arcoVuelta);
 
                 // nodos fantasma nodo origen
-                Subnodo *subnodo_entrante_origen = new Subnodo;
-                Subnodo *subnodo_saliente_origen = new Subnodo;
+                // Subnodo *subnodo_entrante_origen = new Subnodo;
+                // Subnodo *subnodo_saliente_origen = new Subnodo;
+                Subnodo subnodo_entrante_origen;
+                Subnodo subnodo_saliente_origen;
 
-                subnodo_entrante_origen->id_secundario = id_secundario;
-                subnodo_saliente_origen->id_secundario = id_secundario;
+                // subnodo_entrante_origen->id_secundario = id_secundario;
+                // subnodo_saliente_origen->id_secundario = id_secundario;
+                subnodo_entrante_origen.id_secundario = id_secundario;
+                subnodo_saliente_origen.id_secundario = id_secundario;
                 id_secundario++;
 
-                subnodo_entrante_origen->tipo = 1; // 1: entrante
-                subnodo_saliente_origen->tipo = 2; // 2: saliente
+                // subnodo_entrante_origen->tipo = 1; // 1: entrante
+                // subnodo_saliente_origen->tipo = 2; // 2: saliente
+                // subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
+                // subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
+                subnodo_entrante_origen.tipo = 1; // 1: entrante
+                subnodo_saliente_origen.tipo = 2; // 2: saliente
 
-                subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
-                subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
+                // g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
+                // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
-                g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
-                g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
-
+                g.nodos[origen].subnodos.push_back(subnodo_entrante_origen);
+                g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
                 // nodos fantasma nodo destino
                 Subnodo *subnodo_entrante_destino = new Subnodo;
                 Subnodo *subnodo_saliente_destino = new Subnodo;
+                Subnodo subnodo_entrante_destino;
+                Subnodo subnodo_saliente_destino;
 
-                subnodo_entrante_destino->id_secundario = id_secundario;
-                subnodo_saliente_destino->id_secundario = id_secundario;
+                // subnodo_entrante_destino->id_secundario = id_secundario;
+                // subnodo_saliente_destino->id_secundario = id_secundario;\
+
+                subnodo_entrante_destino.id_secundario = id_secundario;
+                subnodo_saliente_destino.id_secundario = id_secundario;
                 id_secundario++;
 
                 subnodo_entrante_destino->tipo = 1; // 1: entrante
@@ -357,8 +390,11 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
                 subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
 
-                g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-                g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
+                // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+                // g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
+
+                g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
+                g.nodos[destino].subnodos.push_back(subnodo_saliente_destino);
 
                 // Actualizar la información heurística
                 double costo = arcoIda->costo_recorrido;
@@ -528,6 +564,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
         
         
     }
+
 
     return g;
 }
