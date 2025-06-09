@@ -82,7 +82,8 @@ protected:
     bool enNodoTerminal(Hormiga &hormiga);                 // Verifica si la hormiga esta en un nodo final
     Hormiga mejor_solucion;                                // Mejor solución
     void limpiar();                                        // Limpia la memoria y datos del algoritmo
-    void limpiar_rastro();                                 // Limpia la memoria y datos del algoritmo
+    void limpiar_rastro();
+    void limpiar_camiones( Hormiga &hormiga);                                 // Limpia la memoria y datos del algoritmo
     std::unordered_map<Arco *, Feromona> feromonas;        // Feromonas
     std::unordered_map<Arco *, Feromona> feromonas_salida; // Feromonas
     std::vector<Hormiga> hormigas;     
@@ -124,7 +125,7 @@ protected:
     int cantidad_sin_nuevo_arco = 0;
 
 public:
-    virtual ~ACO() {}
+    virtual ~ACO();
     //virtual void ejecutar() = 0;
     std::string nombre_instancia; // Nombre de la instancia
     std::string ruta_archivo_salida_csv;
