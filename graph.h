@@ -57,7 +57,24 @@ struct Graph
     std::map<int, Nodo> nodos;                                                          // Mapa de nodos del grafo
     std::unordered_map<int, Arco *> arcos;                                              // Mapa de aristas del grafo
     std::unordered_map<int, std::unordered_map<Arco *, double>> informacion_heuristica; // Información heurística
-    Metadatos metadatos;                                                                // Metadatos del grafo
+    Metadatos metadatos;                                                                 // Metadatos del grafo
+    ~Graph()
+    {
+        for (auto &par : arcos)
+            delete par.second;
+    }
 };
+
+inline void liberar_memoria(Graph &grafo)
+{
+    for (auto &par : grafo.arcos)
+        delete par.second;
+
+    grafo.arcos.clear();
+    grafo.metadatos.nodos_iniciales.clear();
+    grafo.metadatos.nodos_termino.clear();
+    grafo.informacion_heuristica.clear();
+}
+
 
 #endif

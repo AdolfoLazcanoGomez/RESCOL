@@ -4,5 +4,5 @@ Graph::Graph(){
     for (auto &par : arcos){
         delete par.second;
     }
-    arcps.clear();
+    arcos.clear();
 }
