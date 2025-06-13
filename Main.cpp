@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
     //     std::system(comando2.c_str());     
     // }
 
-    liberar_memoria(grafo);
+    //liberar_memoria(grafo);
     delete aco;
     return 0;
 }
