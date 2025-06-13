@@ -88,54 +88,32 @@ Graph leerInstancia(const std::string &nombre_archivo,
         // Crear el arco
         if (bi_or_uni == "uni" )
         {
-            // Arco *arco = new Arco;
-            // arco->id = IdArco;
-            // arco->costo_recorrido = costo_recorrido;
-            // arco->costo_recoleccion = costo_recoleccion;
-            // arco->origen = &g.nodos[origen];
-            // arco->destino = &g.nodos[destino];
-            // arco->bidireccional = false;
-            // g.arcos[IdArco] = arco;
-            Arco arco;
-            arco.id = IdArco;
-            arco.costo_recorrido = costo_recorrido;
-            arco.costo_recoleccion = costo_recoleccion;
-            arco.origen = &g.nodos[origen];
-            arco.destino = &g.nodos[destino];
-            arco.bidireccional = false;
-            Arco *arcoPtr = new Arco(arco);
-            g.arcos[IdArco] = arcoPtr;
+            Arco *arco = new Arco;
+            arco->id = IdArco;
+            arco->costo_recorrido = costo_recorrido;
+            arco->costo_recoleccion = costo_recoleccion;
+            arco->origen = &g.nodos[origen];
+            arco->destino = &g.nodos[destino];
+            arco->bidireccional = false;
+            g.arcos[IdArco] = arco;
 
             // Conectar el arco a sus nodos
-            // g.nodos[origen].saliente.push_back(*arco);
-            // g.nodos[destino].entrante.push_back(*arco);
-            g.nodos[origen].saliente.push_back(arco);
-            g.nodos[destino].entrante.push_back(arco);
+            g.nodos[origen].saliente.push_back(*arco);
+            g.nodos[destino].entrante.push_back(*arco);
 
             // nodos fantasma nodo origen
-            // Subnodo *subnodo_saliente_origen = new Subnodo;
-            // subnodo_saliente_origen->tipo = 2; // 2: saliente
-            // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
-
-            Subnodo subnodo_saliente_origen;
-            subnodo_saliente_origen.tipo = 2;
-            g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
+            Subnodo *subnodo_saliente_origen = new Subnodo;
+            subnodo_saliente_origen->tipo = 2; // 2: saliente
+            g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
             // nodos fantasma nodo destino
-            // Subnodo *subnodo_entrante_destino = new Subnodo;
-            // subnodo_entrante_destino->tipo = 1; // 1: entrante
-            // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-            
-            Subnodo subnodo_entrante_destino;
-            subnodo_entrante_destino.tipo = 1;
-            g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
+            Subnodo *subnodo_entrante_destino = new Subnodo;
+            subnodo_entrante_destino->tipo = 1; // 1: entrante
+            g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
 
             // Actualizar la información heurística
-            // double costo = arco->costo_recorrido;
-            // g.informacion_heuristica[origen][arco] = 1.0 / costo;
-            double costo = arco.costo_recorrido;
-            g.informacion_heuristica[origen][arcoPtr] = 1.0 / costo;
-
+            double costo = arco->costo_recorrido;
+            g.informacion_heuristica[origen][arco] = 1.0 / costo;
             IdArco++;
         }
         else // arco bidireccional
@@ -143,128 +121,82 @@ Graph leerInstancia(const std::string &nombre_archivo,
             if (arcosCreados.find(std::make_pair(origen, destino)) == arcosCreados.end() &&
                 arcosCreados.find(std::make_pair(destino, origen)) == arcosCreados.end())
             {
+                Arco *arcoIda = new Arco;
+                Arco *arcoVuelta = new Arco;
 
-                // Arco *arcoIda = new Arco;
-                // Arco *arcoVuelta = new Arco;
-                Arco arcoIda;
-                Arco arcoVuelta;
-
-                // arcoIda->id = IdArco;
-                // g.arcos[IdArco] = arcoIda;
-                // IdArco++;
-                arcoIda.id = IdArco;
-                arcoIda.costo_recorrido = costo_recorrido;
-                arcoIda.costo_recoleccion = costo_recoleccion;
-                arcoIda.origen = &g.nodos[origen];
-                arcoIda.destino = &g.nodos[destino];
-                arcoIda.bidireccional = true;
-
-                // arcoVuelta->id = IdArco;
-                // g.arcos[IdArco] = arcoVuelta;
-                Arco *arcoIdaPtr = new Arco(arcoIda);
-                g.arcos[IdArco] = arcoIdaPtr;
+                arcoIda->id = IdArco;
+                g.arcos[IdArco] = arcoIda;
                 IdArco++;
 
-                // arcoIda->costo_recorrido = costo_recorrido;
-                // arcoIda->costo_recoleccion = costo_recoleccion;
-                arcoVuelta.id = IdArco;
-                arcoVuelta.costo_recorrido = costo_recorrido;
-                arcoVuelta.costo_recoleccion = costo_recoleccion;
-                arcoVuelta.origen = &g.nodos[destino];
-                arcoVuelta.destino = &g.nodos[origen];
-                arcoVuelta.bidireccional = true;
-
-                // arcoVuelta->costo_recorrido = costo_recorrido;
-                // arcoVuelta->costo_recoleccion = costo_recoleccion;
-
-                // arcoIda->origen = &g.nodos[origen];
-                // arcoIda->destino = &g.nodos[destino];
-
-                // arcoVuelta->origen = &g.nodos[destino];
-                // arcoVuelta->destino = &g.nodos[origen];
-
-                // arcoIda->bidireccional = true;
-                // arcoVuelta->bidireccional = true;
-                Arco *arcoVueltaPtr = new Arco(arcoVuelta);
-                g.arcos[IdArco] = arcoVueltaPtr;
+                arcoVuelta->id = IdArco;
+                g.arcos[IdArco] = arcoVuelta;
                 IdArco++;
 
-                // arcoIda->arco_reciproco = arcoVuelta;
-                // arcoVuelta->arco_reciproco = arcoIda;
-                arcoIdaPtr->arco_reciproco = arcoVueltaPtr;
-                arcoVueltaPtr->arco_reciproco = arcoIdaPtr;
+                arcoIda->costo_recorrido = costo_recorrido;
+                arcoIda->costo_recoleccion = costo_recoleccion;
+
+                arcoVuelta->costo_recorrido = costo_recorrido;
+                arcoVuelta->costo_recoleccion = costo_recoleccion;
+
+                arcoIda->origen = &g.nodos[origen];
+                arcoIda->destino = &g.nodos[destino];
+
+                arcoVuelta->origen = &g.nodos[destino];
+                arcoVuelta->destino = &g.nodos[origen];
+
+                arcoIda->bidireccional = true;
+                arcoVuelta->bidireccional = true;
+
+                arcoIda->arco_reciproco = arcoVuelta;
+                arcoVuelta->arco_reciproco = arcoIda;
 
                 // Conectar el arco a sus nodos
-                // g.nodos[origen].saliente.push_back(*arcoIda);
-                // g.nodos[destino].entrante.push_back(*arcoIda);
-                g.nodos[origen].saliente.push_back(arcoIda);
-                g.nodos[destino].entrante.push_back(arcoIda);
+                g.nodos[origen].saliente.push_back(*arcoIda);
+                g.nodos[destino].entrante.push_back(*arcoIda);
 
-                // g.nodos[origen].entrante.push_back(*arcoVuelta);
-                // g.nodos[destino].saliente.push_back(*arcoVuelta);
-                g.nodos[origen].entrante.push_back(arcoVuelta);
-                g.nodos[destino].saliente.push_back(arcoVuelta);
+                g.nodos[origen].entrante.push_back(*arcoVuelta);
+                g.nodos[destino].saliente.push_back(*arcoVuelta);
 
                 // nodos fantasma nodo origen
-                // Subnodo *subnodo_entrante_origen = new Subnodo;
-                // Subnodo *subnodo_saliente_origen = new Subnodo;
-                Subnodo subnodo_entrante_origen;
-                Subnodo subnodo_saliente_origen;
+                Subnodo *subnodo_entrante_origen = new Subnodo;
+                Subnodo *subnodo_saliente_origen = new Subnodo;
 
-                // subnodo_entrante_origen->id_secundario = id_secundario;
-                // subnodo_saliente_origen->id_secundario = id_secundario;
-                subnodo_entrante_origen.id_secundario = id_secundario;
-                subnodo_saliente_origen.id_secundario = id_secundario;
+                subnodo_entrante_origen->id_secundario = id_secundario;
+                subnodo_saliente_origen->id_secundario = id_secundario;
                 id_secundario++;
 
-                // subnodo_entrante_origen->tipo = 1; // 1: entrante
-                // subnodo_saliente_origen->tipo = 2; // 2: saliente
-                // subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
-                // subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
+                subnodo_entrante_origen->tipo = 1; // 1: entrante
+                subnodo_saliente_origen->tipo = 2; // 2: saliente
 
-                subnodo_entrante_origen.tipo = 1;
-                subnodo_saliente_origen.tipo = 2;
+                subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
+                subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
 
-                // g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
-                // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
-                g.nodos[origen].subnodos.push_back(subnodo_entrante_origen);
-                g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
+                g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
+                g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
                 // nodos fantasma nodo destino
-                // Subnodo *subnodo_entrante_destino = new Subnodo;
-                // Subnodo *subnodo_saliente_destino = new Subnodo;
-                Subnodo subnodo_entrante_destino;
-                Subnodo subnodo_saliente_destino;
+                Subnodo *subnodo_entrante_destino = new Subnodo;
+                Subnodo *subnodo_saliente_destino = new Subnodo;
 
-                // subnodo_entrante_destino->id_secundario = id_secundario;
-                // subnodo_saliente_destino->id_secundario = id_secundario;
-                subnodo_entrante_destino.id_secundario = id_secundario;
-                subnodo_saliente_destino.id_secundario = id_secundario;
+                subnodo_entrante_destino->id_secundario = id_secundario;
+                subnodo_saliente_destino->id_secundario = id_secundario;
                 id_secundario++;
 
-                // subnodo_entrante_destino->tipo = 1; // 1: entrante
-                // subnodo_saliente_destino->tipo = 2; // 2: saliente
-                // subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
-                // subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
+                subnodo_entrante_destino->tipo = 1; // 1: entrante
+                subnodo_saliente_destino->tipo = 2; // 2: saliente
 
-                subnodo_entrante_destino.tipo = 1; // 1: entrante
-                subnodo_saliente_destino.tipo = 2; // 2: saliente
+                subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
+                subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
 
-                // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-                // g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
-                g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
-                g.nodos[destino].subnodos.push_back(subnodo_saliente_destino);
+                g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+                g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
 
                 // Actualizar la información heurística
-                // double costo = arcoIda->costo_recorrido;
-                // g.informacion_heuristica[origen][arcoIda] = 1.0 / costo;
-                double costo = arcoIda.costo_recorrido;
-                g.informacion_heuristica[origen][arcoIdaPtr] = 1.0 / costo;
+                double costo = arcoIda->costo_recorrido;
+                g.informacion_heuristica[origen][arcoIda] = 1.0 / costo;
 
-                // costo = arcoVuelta->costo_recorrido;
-                // g.informacion_heuristica[destino][arcoVuelta] = 1.0 / costo;
-                costo = arcoVuelta.costo_recorrido;
-                g.informacion_heuristica[destino][arcoVueltaPtr] = 1.0 / costo;
+                costo = arcoVuelta->costo_recorrido;
+                g.informacion_heuristica[destino][arcoVuelta] = 1.0 / costo;
 
                 arcosCreados.insert(std::make_pair(origen, destino));
                 arcosCreados.insert(std::make_pair(destino, origen));
@@ -309,52 +241,32 @@ Graph leerInstancia(const std::string &nombre_archivo,
         // Crear el arco
         if (bi_or_uni == "uni" )
         {
-            // Arco *arco = new Arco;
-            // arco->id = IdArco;
-            // arco->obligatoria = false;
-            // arco->costo_recorrido = costo_recorrido;
-            // arco->costo_recoleccion = costo_recoleccion;
-            // arco->origen = &g.nodos[origen];
-            // arco->destino = &g.nodos[destino];
-            // arco->bidireccional = false;
-            // g.arcos[IdArco] = arco;
-
-             Arco arco;
-            arco.id = IdArco;
-            arco.obligatoria = false;
-            arco.costo_recorrido = costo_recorrido;
-            arco.costo_recoleccion = costo_recoleccion;
-            arco.origen = &g.nodos[origen];
-            arco.destino = &g.nodos[destino];
-            arco.bidireccional = false;
-            Arco *arcoPtr = new Arco(arco);
-            g.arcos[IdArco] = arcoPtr;
+            Arco *arco = new Arco;
+            arco->id = IdArco;
+            arco->obligatoria = false;
+            arco->costo_recorrido = costo_recorrido;
+            arco->costo_recoleccion = costo_recoleccion;
+            arco->origen = &g.nodos[origen];
+            arco->destino = &g.nodos[destino];
+            arco->bidireccional = false;
+            g.arcos[IdArco] = arco;
 
             // Conectar el arco a sus nodos
-            // g.nodos[origen].saliente.push_back(*arco);
-            // g.nodos[destino].entrante.push_back(*arco);
-            g.nodos[origen].saliente.push_back(arco);
-            g.nodos[destino].entrante.push_back(arco);
+            g.nodos[origen].saliente.push_back(*arco);
+            g.nodos[destino].entrante.push_back(*arco);
 
             // nodos fantasma nodo origen
-            // Subnodo *subnodo_saliente_origen = new Subnodo;
-            // subnodo_saliente_origen->tipo = 2; // 2: saliente
-            // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
-
-            Subnodo subnodo_saliente_origen;
-            subnodo_saliente_origen.tipo = 2;
-            g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
+            Subnodo *subnodo_saliente_origen = new Subnodo;
+            subnodo_saliente_origen->tipo = 2; // 2: saliente
+            g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
             // nodos fantasma nodo destino
-            // Subnodo *subnodo_entrante_destino = new Subnodo;
-            // subnodo_entrante_destino->tipo = 1; // 1: entrante
-            // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-            Subnodo subnodo_entrante_destino;
-            subnodo_entrante_destino.tipo = 1;
-            g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
+            Subnodo *subnodo_entrante_destino = new Subnodo;
+            subnodo_entrante_destino->tipo = 1; // 1: entrante
+            g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
 
             // Actualizar la información heurística
-            double costo = arco.costo_recorrido;
+            double costo = arco->costo_recorrido;
             g.informacion_heuristica[origen][arco] = 1.0 / costo;
 
             IdArco++;
@@ -365,104 +277,65 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 arcosCreados.find(std::make_pair(destino, origen)) == arcosCreados.end())
             {
 
-                // Arco *arcoIda = new Arco;
-                // Arco *arcoVuelta = new Arco;
-                Arco arcoIda;
-                Arco arcoVuelta;
+                Arco *arcoIda = new Arco;
+                Arco *arcoVuelta = new Arco;
 
-                // arcoIda->id = IdArco;
-                // arcoIda->obligatoria = false;
-                // g.arcos[IdArco] = arcoIda;
-                // IdArco++;
-                arcoIda.id = IdArco;
-                arcoIda.obligatoria = false;
-                arcoIda.costo_recorrido = costo_recorrido;
-                arcoIda.costo_recoleccion = costo_recoleccion;
-                arcoIda.origen = &g.nodos[origen];
-                arcoIda.destino = &g.nodos[destino];
-                arcoIda.bidireccional = true;
-
-                // arcoVuelta->id = IdArco;
-                // g.arcos[IdArco] = arcoVuelta;
-                Arco *arcoIdaPtr = new Arco(arcoIda);
-                g.arcos[IdArco] = arcoIdaPtr;
+                arcoIda->id = IdArco;
+                arcoIda->obligatoria = false;
+                g.arcos[IdArco] = arcoIda;
                 IdArco++;
 
-                // arcoIda->costo_recorrido = costo_recorrido;
-                // arcoIda->costo_recoleccion = costo_recoleccion;
-                arcoVuelta.id = IdArco;
-                arcoVuelta.costo_recorrido = costo_recorrido;
-                arcoVuelta.costo_recoleccion = costo_recoleccion;
-                arcoVuelta.origen = &g.nodos[destino];
-                arcoVuelta.destino = &g.nodos[origen];
-                arcoVuelta.bidireccional = true;
-
-                // arcoVuelta->costo_recorrido = costo_recorrido;
-                // arcoVuelta->costo_recoleccion = costo_recoleccion;
-
-                // arcoIda->origen = &g.nodos[origen];
-                // arcoIda->destino = &g.nodos[destino];
-
-                // arcoVuelta->origen = &g.nodos[destino];
-                // arcoVuelta->destino = &g.nodos[origen];
-
-                // arcoIda->bidireccional = true;
-                // arcoVuelta->bidireccional = true;
-                Arco *arcoVueltaPtr = new Arco(arcoVuelta);
-                g.arcos[IdArco] = arcoVueltaPtr;
+                arcoVuelta->id = IdArco;
+                g.arcos[IdArco] = arcoVuelta;
                 IdArco++;
 
-                // arcoIda->arco_reciproco = arcoVuelta;
-                // arcoVuelta->arco_reciproco = arcoIda;
-                arcoIdaPtr->arco_reciproco = arcoVueltaPtr;
-                arcoVueltaPtr->arco_reciproco = arcoIdaPtr;
+                arcoIda->costo_recorrido = costo_recorrido;
+                arcoIda->costo_recoleccion = costo_recoleccion;
+
+                arcoVuelta->costo_recorrido = costo_recorrido;
+                arcoVuelta->costo_recoleccion = costo_recoleccion;
+
+                arcoIda->origen = &g.nodos[origen];
+                arcoIda->destino = &g.nodos[destino];
+
+                arcoVuelta->origen = &g.nodos[destino];
+                arcoVuelta->destino = &g.nodos[origen];
+
+                arcoIda->bidireccional = true;
+                arcoVuelta->bidireccional = true;
+
+                arcoIda->arco_reciproco = arcoVuelta;
+                arcoVuelta->arco_reciproco = arcoIda;
 
                 // Conectar el arco a sus nodos
-                // g.nodos[origen].saliente.push_back(*arcoIda);
-                // g.nodos[destino].entrante.push_back(*arcoIda);
-                g.nodos[origen].saliente.push_back(arcoIda);
-                g.nodos[destino].entrante.push_back(arcoIda);
+                g.nodos[origen].saliente.push_back(*arcoIda);
+                g.nodos[destino].entrante.push_back(*arcoIda);
 
-                // g.nodos[origen].entrante.push_back(*arcoVuelta);
-                // g.nodos[destino].saliente.push_back(*arcoVuelta);
-                g.nodos[origen].entrante.push_back(arcoVuelta);
-                g.nodos[destino].saliente.push_back(arcoVuelta);
+                g.nodos[origen].entrante.push_back(*arcoVuelta);
+                g.nodos[destino].saliente.push_back(*arcoVuelta);
 
                 // nodos fantasma nodo origen
-                // Subnodo *subnodo_entrante_origen = new Subnodo;
-                // Subnodo *subnodo_saliente_origen = new Subnodo;
-                Subnodo subnodo_entrante_origen;
-                Subnodo subnodo_saliente_origen;
+                Subnodo *subnodo_entrante_origen = new Subnodo;
+                Subnodo *subnodo_saliente_origen = new Subnodo;
 
-                // subnodo_entrante_origen->id_secundario = id_secundario;
-                // subnodo_saliente_origen->id_secundario = id_secundario;
-                subnodo_entrante_origen.id_secundario = id_secundario;
-                subnodo_saliente_origen.id_secundario = id_secundario;
+                subnodo_entrante_origen->id_secundario = id_secundario;
+                subnodo_saliente_origen->id_secundario = id_secundario;
                 id_secundario++;
 
-                // subnodo_entrante_origen->tipo = 1; // 1: entrante
-                // subnodo_saliente_origen->tipo = 2; // 2: saliente
-                // subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
-                // subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
-                subnodo_entrante_origen.tipo = 1; // 1: entrante
-                subnodo_saliente_origen.tipo = 2; // 2: saliente
+                subnodo_entrante_origen->tipo = 1; // 1: entrante
+                subnodo_saliente_origen->tipo = 2; // 2: saliente
+                subnodo_entrante_origen->nodo_reciproco = subnodo_saliente_origen;
+                subnodo_saliente_origen->nodo_reciproco = subnodo_entrante_origen;
 
-                // g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
-                // g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
+                g.nodos[origen].subnodos.push_back(*subnodo_entrante_origen);
+                g.nodos[origen].subnodos.push_back(*subnodo_saliente_origen);
 
-                g.nodos[origen].subnodos.push_back(subnodo_entrante_origen);
-                g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
                 // nodos fantasma nodo destino
                 Subnodo *subnodo_entrante_destino = new Subnodo;
                 Subnodo *subnodo_saliente_destino = new Subnodo;
-                Subnodo subnodo_entrante_destino;
-                Subnodo subnodo_saliente_destino;
 
-                // subnodo_entrante_destino->id_secundario = id_secundario;
-                // subnodo_saliente_destino->id_secundario = id_secundario;
-
-                subnodo_entrante_destino.id_secundario = id_secundario;
-                subnodo_saliente_destino.id_secundario = id_secundario;
+                subnodo_entrante_destino->id_secundario = id_secundario;
+                subnodo_saliente_destino->id_secundario = id_secundario;
                 id_secundario++;
 
                 subnodo_entrante_destino->tipo = 1; // 1: entrante
@@ -471,23 +344,15 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
                 subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
 
-                // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
-                // g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
-
-                g.nodos[destino].subnodos.push_back(subnodo_entrante_destino);
-                g.nodos[destino].subnodos.push_back(subnodo_saliente_destino);
+                g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
+                g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
 
                 // Actualizar la información heurística
-                // double costo = arcoIda->costo_recorrido;
-                // g.informacion_heuristica[origen][arcoIda] = 1.0 / costo;
-                double costo = arcoIda.costo_recorrido;
-                g.informacion_heuristica[origen][arcoIdaPtr] = 1.0 / costo;
+                double costo = arcoIda->costo_recorrido;
+                g.informacion_heuristica[origen][arcoIda] = 1.0 / costo;
 
-
-                // costo = arcoVuelta->costo_recorrido;
-                // g.informacion_heuristica[destino][arcoVuelta] = 1.0 / costo;
-                costo = arcoVuelta.costo_recorrido;
-                g.informacion_heuristica[destino][arcoVueltaPtr] = 1.0 / costo;
+                costo = arcoVuelta->costo_recorrido;
+                g.informacion_heuristica[destino][arcoVuelta] = 1.0 / costo;
 
                 arcosCreados.insert(std::make_pair(origen, destino));
                 arcosCreados.insert(std::make_pair(destino, origen));
@@ -637,16 +502,11 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 {
                     if ((par3.tipo == 2) && (par3.id_secundario != par2.id_secundario)) // 2:saliente
                     {
-                        // Arco *arco = new Arco;
-                        // arco->id = IdArco;
-                        // IdArco++;
-                        // par2.saliente.push_back(*arco);
-                        // par3.entrante.push_back(*arco);
-                        Arco arco;
-                        arco.id = IdArco;
+                        Arco *arco = new Arco;
+                        arco->id = IdArco;
                         IdArco++;
-                        par2.saliente.push_back(arco);
-                        par3.entrante.push_back(arco);
+                        par2.saliente.push_back(*arco);
+                        par3.entrante.push_back(*arco);
                     }
                 }
             }
@@ -654,7 +514,5 @@ Graph leerInstancia(const std::string &nombre_archivo,
         
         
     }
-
-
     return g;
 }
