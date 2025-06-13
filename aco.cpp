@@ -1308,7 +1308,7 @@ void ACO::limpiar()
     {
 
         hormiga.copia_camino_tour.clear();
-        //limpiar_camiones(hormiga);
+        hormiga.vector_camiones.clear();
         // hormiga.camino_salida.clear();
         // hormiga.camino_final.clear();
         hormiga.solucion_valida = true;
