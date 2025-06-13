@@ -355,7 +355,7 @@ Graph leerInstancia(const std::string &nombre_archivo,
 
             // Actualizar la información heurística
             double costo = arco.costo_recorrido;
-            g.informacion_heuristica[origen][arco] = 1.0 / costo;
+            g.informacion_heuristica[origen][arcoPtr] = 1.0 / costo;
 
             IdArco++;
         }
@@ -453,8 +453,8 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 g.nodos[origen].subnodos.push_back(subnodo_entrante_origen);
                 g.nodos[origen].subnodos.push_back(subnodo_saliente_origen);
                 // nodos fantasma nodo destino
-                Subnodo *subnodo_entrante_destino = new Subnodo;
-                Subnodo *subnodo_saliente_destino = new Subnodo;
+                Subnodo *subnodo_entrante_destinoPtr = new Subnodo;
+                Subnodo *subnodo_saliente_destinoPtr = new Subnodo;
                 Subnodo subnodo_entrante_destino;
                 Subnodo subnodo_saliente_destino;
 
@@ -465,11 +465,11 @@ Graph leerInstancia(const std::string &nombre_archivo,
                 subnodo_saliente_destino.id_secundario = id_secundario;
                 id_secundario++;
 
-                subnodo_entrante_destino->tipo = 1; // 1: entrante
-                subnodo_saliente_destino->tipo = 2; // 2: saliente
+                subnodo_entrante_destinoPtr->tipo = 1; // 1: entrante
+                subnodo_saliente_destinoPtr->tipo = 2; // 2: saliente
 
-                subnodo_entrante_destino->nodo_reciproco = subnodo_saliente_destino;
-                subnodo_saliente_destino->nodo_reciproco = subnodo_entrante_destino;
+                subnodo_entrante_destinoPtr->nodo_reciproco = subnodo_saliente_destinoPtr;
+                subnodo_saliente_destinoPtr->nodo_reciproco = subnodo_entrante_destinoPtr;
 
                 // g.nodos[destino].subnodos.push_back(*subnodo_entrante_destino);
                 // g.nodos[destino].subnodos.push_back(*subnodo_saliente_destino);
