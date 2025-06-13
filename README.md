@@ -12,24 +12,24 @@ Compilar en sistemas UNIX con:
 
 Ejecucion basica con:
 
-`./RESCOL Instancias/Formato5x5.txt --metodo 0 --eval-max 3000 --num-hormigas 20 --epocas 1 --matriz-secundaria --beta0 --usar-evaluaciones --usar-limitador --valor-limitador 2 --silence --random-seed --dir-salida ./resultados --prefijo-salida nuevos --rescol `
+`./RESCOL Instancias/others/L00.txt --metodo 0 --eval-max 3000 --num-hormigas 20 --epocas 1 --matriz-secundaria --beta0 --usar-evaluaciones --usar-limitador --valor-limitador 2 --silence --random-seed --dir-salida ./resultados --prefijo-salida nuevos --rescol `
 
 
 Ejecutar con 10 segundos configurados:
 
-`./RESCOL Instancias/Formato5x5.txt --metodo 0 --num-hormigas 4 --salida-dijkstra --beta0 --alfa 4.29 --rho 0.29 --tau-as 5.07 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 4 --salida-dijkstra --beta0 --alfa 4.29 --rho 0.29 --tau-as 5.07 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 Ejecutar con 30 segundos configurados:
 
-`./RESCOL Instancias/Formato5x5.txt --metodo 0 --num-hormigas 23 --salida-dijkstra --beta0 --alfa 4.11 --rho 0.3 --tau-as 3.57 --valor-limitador 2 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 30  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 23 --salida-dijkstra --beta0 --alfa 4.11 --rho 0.3 --tau-as 3.57 --valor-limitador 2 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 30  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 Ejecutar con 1 minuto configurado:
 
-`./RESCOL Instancias/Formato5x5.txt --metodo 0 --num-hormigas 16 --salida-dijkstra --beta0 --alfa 2.79 --rho 0.29 --tau-as 2.39 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 60  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 16 --salida-dijkstra --beta0 --alfa 2.79 --rho 0.29 --tau-as 2.39 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 60  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 
 Ejecutar con 5 minutos configurado:
-`./RESCOL Instancias/Formato5x5.txt --metodo 0 --num-hormigas 26 --salida-dijkstra --beta0 --alfa 1.81 --rho 0.22 --tau-as 2.14 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 300  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 26 --salida-dijkstra --beta0 --alfa 1.81 --rho 0.22 --tau-as 2.14 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 300  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 ## Parámetros
 ### Entrada y salida
