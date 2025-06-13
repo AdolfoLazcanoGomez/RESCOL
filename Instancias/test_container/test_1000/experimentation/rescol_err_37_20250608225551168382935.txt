@@ -1,0 +1,23 @@
+	Command being timed: "/home/alazcano/RESCOL/RESCOL /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt --semilla 35312856 --num-hormigas 14 --alfa 1.9722 --rho 0.2079 --tau-as 7.8579 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2038 --salida-dijkstra --usar-tiempo --tiempo-max 480 --metodo 0 --epocas 1 --beta0 --silence --dir-salida ./resultados --prefijo-salida nuevos --rescol"
+	User time (seconds): 477.09
+	System time (seconds): 2.62
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:01.64
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2584656
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 645175
+	Voluntary context switches: 560
+	Involuntary context switches: 991
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

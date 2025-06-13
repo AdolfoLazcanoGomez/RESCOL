@@ -1,4 +1,4 @@
-parameterFile <- "/home/alazcano/RESCOL/Instancias/test_container/test_1000/scenario.txt"
+parameterFile <- "/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/parametros.txt"
 
 trainInstancesDir <- "/home/alazcano/RESCOL/Instancias/test_container/test_1000/instances"
 

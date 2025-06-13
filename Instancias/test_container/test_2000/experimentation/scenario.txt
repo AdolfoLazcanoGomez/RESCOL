@@ -4,7 +4,7 @@ trainInstancesDir <- "/home/alazcano/RESCOL/Instancias/test_container/test_2000/
 
 targetRunner <- "/home/alazcano/RESCOL/Instancias/test_container/test_2000/experimentation/target_runner.sh"
 
-maxExperiments <- 1000
+maxExperiments <- 2000
 testType <- "F-test"
 elitist <- 1
 boundMax <- 20

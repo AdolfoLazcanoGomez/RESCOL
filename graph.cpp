@@ -1,6 +1,7 @@
 #include "graph.h"
 
-Graph::Graph(){
+Graph::Graph()
+{
     for (auto &par : arcos){
         delete par.second;
     }

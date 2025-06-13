@@ -12,7 +12,7 @@ CONFIG_PARAMS=$*
 
 # Definir variables para los parámetros restantes
 metodo=0
-tiempo_max=600
+tiempo_max=480
 epocas=1
 beta0="--beta0"
 silence="--silence"

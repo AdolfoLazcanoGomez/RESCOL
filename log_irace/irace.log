@@ -1,0 +1,632 @@
+nohup: ignoring input
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 4.2.0.b50b134
+# Copyright (C) 2010-2025
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /home/alazcano/R/x86_64-redhat-linux-gnu-library/4.0/irace
+# called with: --scenario scenario.txt --parallel 40
+# 2025-05-29 14:58:10 -04: Reading parameter file '/home/alazcano/RESCOL/Experimentation/parametros.txt'.
+# 2025-05-29 14:58:10 -04: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 4
+# minNbSurvival: 4
+# nbParameters: 7
+# seed: 888025185
+# confidence level: 0.95
+# budget: 3000
+# mu: 5
+# deterministic: FALSE
+# boundMax: 20
+
+# 2025-05-29 14:58:10 -04: Iteration 1 of 4
+# experimentsUsed: 0
+# remainingBudget: 3000
+# currentBudget: 750
+# nbConfigurations: 125
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|        125|         91|     2074567.090|        125|00:40:03|   NA|  NA|    NA|
+Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 1 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 16 --alfa 1.0609 --rho 0.1179 --tau-as 5.5481 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1135
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18756 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 2 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 2 --alfa 3.5559 --rho 0.2429 --tau-as 1.0481 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2385
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18759 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 4 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 24 --alfa 4.8034 --rho 0.1804 --tau-as 3.2981 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.176
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18786 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 5 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 27 --alfa 1.6846 --rho 0.2741 --tau-as 4.4231 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.0822
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18760 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 6 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 13 --alfa 4.1796 --rho 0.1491 --tau-as 8.9231 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2072
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18803 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 7 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 20 --alfa 2.9321 --rho 0.0866 --tau-as 6.6731 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2697
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18773 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 9 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 18 --alfa 3.8678 --rho 0.2585 --tau-as 8.3606 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.1916
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18784 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 10 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 4 --alfa 1.3728 --rho 0.1335 --tau-as 3.8606 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.0666
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18789 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 11 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 25 --alfa 0.1253 --rho 0.071 --tau-as 1.6106 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.1291
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18798 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 13 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 29 --alfa 3.244 --rho 0.1647 --tau-as 2.7356 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2853
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18799 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 14 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 15 --alfa 0.749 --rho 0.2897 --tau-as 7.2356 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.1603
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18810 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 16 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 22 --alfa 1.9965 --rho 0.2272 --tau-as 9.4856 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.0978
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18838 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 18 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 5 --alfa 4.0237 --rho 0.235 --tau-as 6.9543 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.1213
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18867 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 19 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 12 --alfa 0.2812 --rho 0.1725 --tau-as 4.7043 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.1838
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18858 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 20 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 26 --alfa 2.7762 --rho 0.2975 --tau-as 9.2043 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.0588
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18847 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 21 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 8 --alfa 2.1525 --rho 0.2663 --tau-as 5.8293 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2775
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18857 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 22 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 23 --alfa 4.6475 --rho 0.1413 --tau-as 1.3293 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.1525
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18873 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 24 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 16 --alfa 3.4 --rho 0.0788 --tau-as 3.5793 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.09
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18878 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 25 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 21 --alfa 0.5931 --rho 0.2507 --tau-as 4.1418 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2307
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18905 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 26 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 6 --alfa 3.0881 --rho 0.1257 --tau-as 8.6418 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1057
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18896 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 27 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 14 --alfa 1.8406 --rho 0.1882 --tau-as 1.8918 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2932
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18904 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 29 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 10 --alfa 4.9593 --rho 0.2819 --tau-as 3.0168 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1369
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18916 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 30 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 25 --alfa 2.4643 --rho 0.1569 --tau-as 7.5168 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2619
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18929 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 31 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 3 --alfa 1.2168 --rho 0.0944 --tau-as 9.7668 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.1994
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18949 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 33 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 17 --alfa 4.8814 --rho 0.0749 --tau-as 9.6262 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.258
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18950 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 34 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 2 --alfa 2.3864 --rho 0.1999 --tau-as 5.1262 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.133
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18948 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 35 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 24 --alfa 1.1389 --rho 0.2624 --tau-as 2.8762 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.0705
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18962 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 37 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 21 --alfa 1.7626 --rho 0.1686 --tau-as 8.5012 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.1642
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18969 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 39 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 28 --alfa 3.0101 --rho 0.2311 --tau-as 1.7512 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2267
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18977 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 40 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 13 --alfa 0.5151 --rho 0.1061 --tau-as 6.2512 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.1017
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18983 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 41 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 22 --alfa 3.322 --rho 0.278 --tau-as 5.6887 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2111
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 64545 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 42 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 8 --alfa 0.827 --rho 0.153 --tau-as 1.1887 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.0861
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 84488 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 43 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 30 --alfa 2.0745 --rho 0.0905 --tau-as 3.4387 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1486
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29:  8472 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 44 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 15 --alfa 4.5695 --rho 0.2155 --tau-as 7.9387 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2736
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 29759 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 45 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 26 --alfa 3.9457 --rho 0.1218 --tau-as 4.5637 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2424
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 51958 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 46 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 11 --alfa 1.4507 --rho 0.2468 --tau-as 9.0637 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.1174
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 73446 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 47 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 4 --alfa 2.6982 --rho 0.0593 --tau-as 2.3137 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.1799
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 95871 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 48 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 19 --alfa 0.2032 --rho 0.1843 --tau-as 6.8137 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.0549
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 22712 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 49 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 12 --alfa 3.7898 --rho 0.0827 --tau-as 2.0324 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.0783
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 47071 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 50 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 27 --alfa 1.2948 --rho 0.2077 --tau-as 6.5324 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2033
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 73334 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 51 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 20 --alfa 2.5423 --rho 0.1452 --tau-as 4.2824 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.1408
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29:  1085 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 52 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 5 --alfa 0.0473 --rho 0.2702 --tau-as 8.7824 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2658
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 26509 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 53 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 16 --alfa 1.9185 --rho 0.114 --tau-as 3.1574 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2346
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 53448 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 54 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 30 --alfa 4.4135 --rho 0.239 --tau-as 7.6574 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.1096
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 80776 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 55 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 23 --alfa 0.671 --rho 0.0515 --tau-as 5.4074 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2971
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29:  9088 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 56 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 9 --alfa 3.166 --rho 0.1765 --tau-as 9.9074 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1721
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 35537 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 57 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 11 --alfa 0.9829 --rho 0.2233 --tau-as 3.7199 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2502
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 61829 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 58 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 25 --alfa 3.4779 --rho 0.0983 --tau-as 8.2199 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.1252
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 87390 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 59 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 18 --alfa 2.2304 --rho 0.2858 --tau-as 1.4699 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.1877
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 16127 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 60 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 3 --alfa 4.7254 --rho 0.1608 --tau-as 5.9699 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.0627
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 43440 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 61 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 14 --alfa 2.8542 --rho 0.2546 --tau-as 4.8449 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.1564
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 72299 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 62 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 29 --alfa 0.3592 --rho 0.1296 --tau-as 9.3449 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.2814
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29:  3237 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 63 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 21 --alfa 4.1017 --rho 0.1921 --tau-as 2.5949 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.0939
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 31901 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 64 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 7 --alfa 1.6067 --rho 0.0671 --tau-as 7.0949 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2189
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 61338 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 65 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 22 --alfa 0.0863 --rho 0.1511 --tau-as 2.384 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.2014
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 92056 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 66 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 8 --alfa 2.5813 --rho 0.2761 --tau-as 6.884 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.0764
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 25004 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 68 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 29 --alfa 3.8288 --rho 0.2136 --tau-as 9.134 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.1389
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 83687 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 69 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 18 --alfa 3.205 --rho 0.0573 --tau-as 1.259 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.1076
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 16178 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 71 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 11 --alfa 4.4525 --rho 0.1198 --tau-as 3.509 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.1701
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 63366 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 72 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 26 --alfa 1.9575 --rho 0.2448 --tau-as 8.009 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.2951
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 63367 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 74 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 20 --alfa 4.7644 --rho 0.2917 --tau-as 5.1965 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.1232
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 63653 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 79 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 24 --alfa 2.8932 --rho 0.1354 --tau-as 6.3215 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.092
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 63837 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 80 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 9 --alfa 0.3982 --rho 0.2604 --tau-as 1.8215 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.217
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 63992 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 81 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 16 --alfa 3.9847 --rho 0.2526 --tau-as 6.6027 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1779
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 18726 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 82 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 30 --alfa 1.4897 --rho 0.1276 --tau-as 2.1027 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.0529
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 47267 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 83 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 8 --alfa 0.2422 --rho 0.0651 --tau-as 4.3527 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.1154
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 76342 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 84 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 23 --alfa 2.7372 --rho 0.1901 --tau-as 8.8527 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.2404
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29:  6956 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 85 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 27 --alfa 4.6085 --rho 0.0964 --tau-as 3.2277 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.2092
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 35211 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 86 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 12 --alfa 2.1135 --rho 0.2214 --tau-as 7.7277 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.0842
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 64933 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 87 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 19 --alfa 0.866 --rho 0.2839 --tau-as 9.9777 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.1467
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 94387 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 88 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 5 --alfa 3.361 --rho 0.1589 --tau-as 5.4777 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.2717
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 25979 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 89 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 28 --alfa 3.6728 --rho 0.2683 --tau-as 3.7902 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.256
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 55901 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 90 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 14 --alfa 1.1778 --rho 0.1433 --tau-as 8.2902 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.131
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 82827 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 91 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 21 --alfa 2.4253 --rho 0.0808 --tau-as 6.0402 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.0685
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 13560 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 92 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 7 --alfa 4.9203 --rho 0.2058 --tau-as 1.5402 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.1935
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 41408 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 93 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 10 --alfa 3.0491 --rho 0.112 --tau-as 9.4152 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.2873
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 69655 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 95 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 3 --alfa 1.8016 --rho 0.2995 --tau-as 2.6652 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.0998
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 29499 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 96 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 18 --alfa 4.2966 --rho 0.1745 --tau-as 7.1652 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.2248
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 60840 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 97 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 8 --alfa 3.9068 --rho 0.1315 --tau-as 2.5246 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.2599
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 91733 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 99 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 30 --alfa 2.6593 --rho 0.069 --tau-as 4.7746 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.1974
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 57365 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 100 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 15 --alfa 0.1643 --rho 0.194 --tau-as 9.2746 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.0724
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 86072 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == The output of targetRunner should not be more than two numbers!
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh 103 5 443425139 /home/alazcano/RESCOL/Instancias/test_container/test_3000/M01.txt 20 --num-hormigas 4 --alfa 2.0355 --rho 0.1003 --tau-as 1.3996 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.1662
+== irace == The output was:
+/home/alazcano/RESCOL/Experimentation/target_runner.sh: line 29: 76193 Killed                  /home/alazcano/RESCOL/RESCOL $INSTANCE --semilla $SEED ${CONFIG_PARAMS} --salida-dijkstra --usar-tiempo --tiempo-max $tiempo_max --metodo $metodo --epocas $epocas $beta0 $usar_limitador $silence --dir-salida $dir_salida --prefijo-salida $prefijo_salida $rescol &> $log_file
+
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+Error: == irace == A child process triggered a fatal error
+In addition: Warning messages:
+1: In readLines(con = file) :
+  incomplete final line found on '/home/alazcano/RESCOL/Experimentation/parametros.txt'
+2: In parallel::mclapply(experiments, exec_target_runner, mc.preschedule = !scenario$loadBalancing,  :
+  82 function calls resulted in an error
+Execution halted

@@ -1,0 +1,303 @@
+nohup: ignoring input
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 4.2.0.b50b134
+# Copyright (C) 2010-2025
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /home/alazcano/R/x86_64-redhat-linux-gnu-library/4.0/irace
+# called with: --scenario scenario.txt --parallel 40
+# 2025-06-08 22:55:51 -04: Reading parameter file '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/parametros.txt'.
+# 2025-06-08 22:55:51 -04: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 4
+# minNbSurvival: 4
+# nbParameters: 7
+# seed: 1496932383
+# confidence level: 0.95
+# budget: 1000
+# mu: 5
+# deterministic: FALSE
+# boundMax: 20
+
+# 2025-06-08 22:55:51 -04: Iteration 1 of 4
+# experimentsUsed: 0
+# remainingBudget: 1000
+# currentBudget: 250
+# nbConfigurations: 41
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 1 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 3 --alfa 3.9214 --rho 0.1414 --tau-as 4.061 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.153 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 1 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 3 --alfa 3.9214 --rho 0.1414 --tau-as 4.061 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.153
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 2 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 17 --alfa 1.4264 --rho 0.2664 --tau-as 8.561 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.278 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 2 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 17 --alfa 1.4264 --rho 0.2664 --tau-as 8.561 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.278
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 3 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 10 --alfa 0.1789 --rho 0.2039 --tau-as 6.311 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2155 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 3 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 10 --alfa 0.1789 --rho 0.2039 --tau-as 6.311 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2155
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 4 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 2.6739 --rho 0.0789 --tau-as 1.811 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.0905 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 4 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 2.6739 --rho 0.0789 --tau-as 1.811 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.0905
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 5 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 14 --alfa 3.2977 --rho 0.2977 --tau-as 7.436 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.0593 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 5 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 14 --alfa 3.2977 --rho 0.2977 --tau-as 7.436 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.0593
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 6 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 28 --alfa 0.8027 --rho 0.1727 --tau-as 2.936 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.1843 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 6 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 28 --alfa 0.8027 --rho 0.1727 --tau-as 2.936 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.1843
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 7 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 21 --alfa 4.5452 --rho 0.2352 --tau-as 9.686 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.1218 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 7 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 21 --alfa 4.5452 --rho 0.2352 --tau-as 9.686 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.1218
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 8 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 6 --alfa 2.0502 --rho 0.1102 --tau-as 5.186 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2468 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 8 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 6 --alfa 2.0502 --rho 0.1102 --tau-as 5.186 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2468
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 9 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 15 --alfa 1.7383 --rho 0.1571 --tau-as 9.1235 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2624 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 9 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 15 --alfa 1.7383 --rho 0.1571 --tau-as 9.1235 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2624
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 10 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 30 --alfa 4.2333 --rho 0.2821 --tau-as 4.6235 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.1374 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 10 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 30 --alfa 4.2333 --rho 0.2821 --tau-as 4.6235 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.1374
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 11 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 23 --alfa 0.4908 --rho 0.0946 --tau-as 6.8735 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.1999 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 11 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 23 --alfa 0.4908 --rho 0.0946 --tau-as 6.8735 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.1999
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 12 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 8 --alfa 2.9858 --rho 0.2196 --tau-as 2.3735 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.0749 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 12 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 8 --alfa 2.9858 --rho 0.2196 --tau-as 2.3735 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.0749
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 13 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 12 --alfa 4.8571 --rho 0.0633 --tau-as 7.9985 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1687 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 13 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 12 --alfa 4.8571 --rho 0.0633 --tau-as 7.9985 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1687
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 14 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 26 --alfa 2.3621 --rho 0.1883 --tau-as 3.4985 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2937 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 14 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 26 --alfa 2.3621 --rho 0.1883 --tau-as 3.4985 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2937
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 15 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 19 --alfa 3.6096 --rho 0.1258 --tau-as 5.7485 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.1062 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 15 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 19 --alfa 3.6096 --rho 0.1258 --tau-as 5.7485 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.1062
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 16 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 5 --alfa 1.1146 --rho 0.2508 --tau-as 1.2485 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2312 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 16 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 5 --alfa 1.1146 --rho 0.2508 --tau-as 1.2485 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2312
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 17 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 2 --alfa 1.2705 --rho 0.2274 --tau-as 7.1548 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.0983 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 17 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 2 --alfa 1.2705 --rho 0.2274 --tau-as 7.1548 --valor-limitador 3 --valor-sin-nuevas-visitas 2 --rho-sec 0.0983
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 18 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 16 --alfa 3.7655 --rho 0.1024 --tau-as 2.6548 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2233 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 18 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 16 --alfa 3.7655 --rho 0.1024 --tau-as 2.6548 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.2233
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 19 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 9 --alfa 2.518 --rho 0.1649 --tau-as 4.9048 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.2858 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 19 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 9 --alfa 2.518 --rho 0.1649 --tau-as 4.9048 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.2858
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 20 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 24 --alfa 0.023 --rho 0.2899 --tau-as 9.4048 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.1608 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 20 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 24 --alfa 0.023 --rho 0.2899 --tau-as 9.4048 --valor-limitador 2 --valor-sin-nuevas-visitas 3 --rho-sec 0.1608
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 21 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 6 --alfa 4.3892 --rho 0.2586 --tau-as 6.0298 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.1921 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 21 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 6 --alfa 4.3892 --rho 0.2586 --tau-as 6.0298 --valor-limitador 3 --valor-sin-nuevas-visitas 1 --rho-sec 0.1921
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 22 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 20 --alfa 1.8942 --rho 0.1336 --tau-as 1.5298 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.0671 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 22 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 20 --alfa 1.8942 --rho 0.1336 --tau-as 1.5298 --valor-limitador 1 --valor-sin-nuevas-visitas 3 --rho-sec 0.0671
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 23 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 13 --alfa 0.6467 --rho 0.0711 --tau-as 3.7798 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.1296 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 23 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 13 --alfa 0.6467 --rho 0.0711 --tau-as 3.7798 --valor-limitador 4 --valor-sin-nuevas-visitas 2 --rho-sec 0.1296
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 24 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 27 --alfa 3.1417 --rho 0.1961 --tau-as 8.2798 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2546 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 24 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 27 --alfa 3.1417 --rho 0.1961 --tau-as 8.2798 --valor-limitador 2 --valor-sin-nuevas-visitas 4 --rho-sec 0.2546
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 25 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 15 --alfa 4.0774 --rho 0.1805 --tau-as 2.0923 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.1765 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 25 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 15 --alfa 4.0774 --rho 0.1805 --tau-as 2.0923 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.1765
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 26 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 29 --alfa 1.5824 --rho 0.0555 --tau-as 6.5923 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.0515 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 26 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 29 --alfa 1.5824 --rho 0.0555 --tau-as 6.5923 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.0515
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 27 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 7 --alfa 0.3349 --rho 0.118 --tau-as 8.8423 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.114 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 27 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 7 --alfa 0.3349 --rho 0.118 --tau-as 8.8423 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.114
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 28 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 22 --alfa 2.8299 --rho 0.243 --tau-as 4.3423 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.239 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 28 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 22 --alfa 2.8299 --rho 0.243 --tau-as 4.3423 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.239
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 29 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 4 --alfa 3.4536 --rho 0.0868 --tau-as 9.9673 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2702 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 29 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 4 --alfa 3.4536 --rho 0.0868 --tau-as 9.9673 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2702
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 30 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 18 --alfa 0.9586 --rho 0.2118 --tau-as 5.4673 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1452 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 30 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 18 --alfa 0.9586 --rho 0.2118 --tau-as 5.4673 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1452
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 31 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 4.7011 --rho 0.1493 --tau-as 7.7173 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2077 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 31 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 4.7011 --rho 0.1493 --tau-as 7.7173 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2077
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 32 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 11 --alfa 2.2061 --rho 0.2743 --tau-as 3.2173 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.0827 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 32 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 11 --alfa 2.2061 --rho 0.2743 --tau-as 3.2173 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.0827
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 33 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 11 --alfa 3.8435 --rho 0.2391 --tau-as 8.9829 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1101 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 33 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 11 --alfa 3.8435 --rho 0.2391 --tau-as 8.9829 --valor-limitador 4 --valor-sin-nuevas-visitas 4 --rho-sec 0.1101
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 34 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 1.3485 --rho 0.1141 --tau-as 4.4829 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2351 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 34 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 25 --alfa 1.3485 --rho 0.1141 --tau-as 4.4829 --valor-limitador 2 --valor-sin-nuevas-visitas 2 --rho-sec 0.2351
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 35 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 3 --alfa 0.101 --rho 0.0516 --tau-as 2.2329 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2976 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 35 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 3 --alfa 0.101 --rho 0.0516 --tau-as 2.2329 --valor-limitador 3 --valor-sin-nuevas-visitas 3 --rho-sec 0.2976
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 36 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 18 --alfa 2.596 --rho 0.1766 --tau-as 6.7329 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.1726 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 36 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 18 --alfa 2.596 --rho 0.1766 --tau-as 6.7329 --valor-limitador 1 --valor-sin-nuevas-visitas 1 --rho-sec 0.1726
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 37 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 14 --alfa 1.9722 --rho 0.2079 --tau-as 7.8579 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2038 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 37 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 14 --alfa 1.9722 --rho 0.2079 --tau-as 7.8579 --valor-limitador 4 --valor-sin-nuevas-visitas 3 --rho-sec 0.2038
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 38 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 29 --alfa 4.4672 --rho 0.0829 --tau-as 3.3579 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.0788 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 38 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 29 --alfa 4.4672 --rho 0.0829 --tau-as 3.3579 --valor-limitador 2 --valor-sin-nuevas-visitas 1 --rho-sec 0.0788
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 39 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 7 --alfa 3.2197 --rho 0.1454 --tau-as 1.1079 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1413 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 39 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 7 --alfa 3.2197 --rho 0.1454 --tau-as 1.1079 --valor-limitador 3 --valor-sin-nuevas-visitas 4 --rho-sec 0.1413
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 40 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 21 --alfa 0.7247 --rho 0.2704 --tau-as 5.6079 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2663 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 40 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 21 --alfa 0.7247 --rho 0.2704 --tau-as 5.6079 --valor-limitador 1 --valor-sin-nuevas-visitas 2 --rho-sec 0.2663
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+ Error : == irace == running command ''/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh' 41 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 9 --alfa 1.6603 --rho 0.286 --tau-as 3.9204 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.1882 2>&1' had status 2
+== irace == The call to targetRunner was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh 41 1 35312856 /home/alazcano/RESCOL/Instancias/test_container/test_1000/instances/L00.txt 20 --num-hormigas 9 --alfa 1.6603 --rho 0.286 --tau-as 3.9204 --valor-limitador 1 --valor-sin-nuevas-visitas 4 --rho-sec 0.1882
+== irace == The output was:
+/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/target_runner.sh: line 72: syntax error: unexpected end of file
+== irace == This is not a bug in irace, but means that something failed when running the command(s) above or they were terminated before completion. Try to run the command(s) above from the execution directory '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation' to investigate the issue. See also Appendix B (targetRunner troubleshooting checklist) of the User Guide (https://cran.r-project.org/package=irace/vignettes/irace-package.pdf).
+Error: == irace == A child process triggered a fatal error
+In addition: Warning messages:
+1: In readLines(con = file) :
+  incomplete final line found on '/home/alazcano/RESCOL/Instancias/test_container/test_1000/experimentation/parametros.txt'
+2: In parallel::mclapply(experiments, exec_target_runner, mc.preschedule = !scenario$loadBalancing,  :
+  41 function calls resulted in an error
+Execution halted
