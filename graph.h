@@ -59,7 +59,4 @@ struct Graph
     std::unordered_map<int, std::unordered_map<Arco *, double>> informacion_heuristica; // Información heurística
     Metadatos metadatos;                                                                 // Metadatos del grafoqq
 };
-
-
-
 #endif

@@ -17,7 +17,7 @@ Ejecucion basica con:
 
 Ejecutar con 10 segundos configurados:
 
-`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 4 --salida-dijkstra --beta0 --alfa 4.29 --rho 0.29 --tau-as 5.07 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 26 --salida-dijkstra --beta0 --alfa 1.5777 --rho 0.0955 --tau-as 4.2971 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 Ejecutar con 30 segundos configurados:
 

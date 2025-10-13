@@ -22,7 +22,7 @@ void ElitistSystem2::resolver()
         std::cout << "elitist" << std::endl;
         while (std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - comienzo_ejecucion) <= tiempo_total_ejecucion )
         {
-            std::cout << "holi1" << std::endl;
+            //std::cout << "holi1" << std::endl;
             iterar();
             mejor_solucion = guardar_mejor_solucion_iteracion();
             limpiar();

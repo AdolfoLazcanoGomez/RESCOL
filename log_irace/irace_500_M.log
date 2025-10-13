@@ -1,0 +1,306 @@
+nohup: ignoring input
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 4.2.0.b50b134
+# Copyright (C) 2010-2025
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /home/alazcano/R/x86_64-redhat-linux-gnu-library/4.0/irace
+# called with: --scenario scenario.txt --parallel 40
+# 2025-06-18 18:59:48 -04: Reading parameter file '/home/alazcano/RESCOL/Instancias/test_container/test_2000/experimentation/parametros.txt'.
+# 2025-06-18 18:59:48 -04: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 4
+# minNbSurvival: 4
+# nbParameters: 7
+# seed: 1674763049
+# confidence level: 0.95
+# budget: 400
+# mu: 5
+# deterministic: FALSE
+# boundMax: 20
+
+# 2025-06-18 18:59:48 -04: Iteration 1 of 4
+# experimentsUsed: 0
+# remainingBudget: 400
+# currentBudget: 100
+# nbConfigurations: 16
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         16|         12|     161484.3200|         16|00:08:01|   NA|  NA|    NA|
+|x|          2|         16|         11|     164298.5050|         32|00:08:01|+0.57|0.79|0.4268|
+|x|          3|         16|          7|     164751.9267|         48|00:08:01|+0.47|0.65|0.4513|
+|x|          4|         16|          7|     164049.2425|         64|00:08:01|+0.45|0.59|0.4587|
+|-|          5|          6|          7|     162953.0420|         80|00:08:01|-0.13|0.09|0.9495|
+|=|          6|          6|          7|     164043.1167|         86|00:08:01|-0.06|0.12|0.8564|
+|=|          7|          6|         14|     163789.3200|         92|00:08:01|-0.05|0.10|0.8252|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          14    mean value:      163789.3200
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+14   14           12 1.0992 0.1119 3.1561               4                        1    0.19       NA
+
+# 2025-06-18 19:55:58 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+14           12 1.0992 0.1119 3.1561               4                        1  0.1900
+7             3 0.1635 0.1588 7.0936               1                        2  0.2057
+4             6 3.2823 0.0650 5.9686               1                        1  0.1119
+12           23 4.2179 0.0806 4.2811               1                        3  0.1588
+# 2025-06-18 19:55:58 -04: Iteration 2 of 4
+# experimentsUsed: 92
+# remainingBudget: 308
+# currentBudget: 102
+# nbConfigurations: 16
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          8|         16|         26|     153686.1300|         16|00:08:01|   NA|  NA|    NA|
+|x|          1|         16|         19|     159373.2150|         28|00:08:02|+0.04|0.52|0.8142|
+|x|          3|         16|         19|     160109.1633|         40|00:08:02|+0.30|0.54|0.6413|
+|x|          6|         16|         18|     162339.3000|         52|00:08:02|+0.32|0.49|0.5956|
+|-|          4|          9|         26|     161063.3260|         64|00:08:02|-0.02|0.18|0.9238|
+|=|          2|          9|         18|     162713.9117|         69|00:08:01|-0.04|0.14|0.9501|
+|=|          5|          9|         26|     162174.4057|         74|00:08:00|-0.07|0.08|0.9727|
+|=|          7|          9|         19|     162900.1225|         79|00:08:01|-0.05|0.08|0.9401|
+|=|          9|          9|         19|     162896.2789|         88|00:08:02|-0.05|0.07|0.9138|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          19    mean value:      162896.2789
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+19   19           10 2.0929 0.0702 3.0717               4                        1  0.1787       14
+
+# 2025-06-18 21:08:15 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+14           12 1.0992 0.1119 3.1561               4                        1  0.1900
+26           29 4.8563 0.0666 7.5912               3                        3  0.0686
+22            9 2.7116 0.1603 3.4765               1                        1  0.1067
+# 2025-06-18 21:08:15 -04: Iteration 3 of 4
+# experimentsUsed: 180
+# remainingBudget: 220
+# currentBudget: 110
+# nbConfigurations: 14
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         10|         14|         30|     159848.9600|         14|00:08:01|   NA|  NA|    NA|
+|x|          6|         14|         14|     161667.1100|         24|00:08:02|+0.10|0.55|0.6684|
+|x|          4|         14|         30|     162640.9200|         34|00:08:02|+0.41|0.61|0.4857|
+|x|          1|         14|         31|     162025.8025|         44|00:08:02|+0.17|0.38|0.6637|
+|-|          2|         11|         31|     161314.2200|         54|00:08:02|-0.11|0.11|1.0411|
+|=|          9|         11|         31|     161280.0817|         61|00:08:01|-0.01|0.16|0.9396|
+|=|          7|         11|         14|     163522.9657|         68|00:08:01|-0.02|0.12|0.9249|
+|=|          5|         11|         14|     163327.1862|         75|00:08:01|-0.04|0.09|0.9323|
+|=|          3|         11|         14|     163036.6833|         82|00:08:01|-0.01|0.11|0.9116|
+|=|          8|         11|         19|     162591.9350|         89|00:08:01|+0.04|0.13|0.8716|
+|=|         11|         11|         19|     162311.8145|        100|00:08:02|+0.07|0.15|0.8334|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          19    mean value:      162311.8145
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+19   19           10 2.0929 0.0702 3.0717               4                        1  0.1787       14
+
+# 2025-06-18 22:36:34 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+14           12 1.0992 0.1119 3.1561               4                        1  0.1900
+22            9 2.7116 0.1603 3.4765               1                        1  0.1067
+34           14 1.7668 0.0804 3.0454               4                        1  0.1950
+# 2025-06-18 22:36:34 -04: Iteration 4 of 4
+# experimentsUsed: 280
+# remainingBudget: 120
+# currentBudget: 120
+# nbConfigurations: 13
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         12|         13|         40|     150682.9800|         13|00:08:01|   NA|  NA|    NA|
+|x|         10|         13|         44|     155955.5350|         22|00:08:02|+0.46|0.73|0.3437|
+|x|          5|         13|         40|     156457.9833|         31|00:08:01|+0.59|0.72|0.3288|
+|x|          8|         13|         44|     157828.8125|         40|00:08:02|+0.47|0.61|0.3804|
+|-|          2|          7|         44|     157602.9240|         49|00:08:01|+0.25|0.40|0.4953|
+|=|          4|          7|         44|     158682.5417|         52|00:08:00|+0.10|0.25|0.6407|
+|=|         11|          7|         44|     161802.4257|         55|00:08:00|+0.02|0.16|0.7559|
+|=|          7|          7|         19|     160372.5300|         58|00:08:00|+0.02|0.14|0.7522|
+|=|          1|          7|         19|     160593.9833|         61|00:08:00|+0.07|0.17|0.7338|
+|=|          9|          7|         19|     160821.1380|         64|00:08:00|+0.00|0.10|0.7929|
+|=|          3|          7|         19|     160890.2218|         67|00:08:00|-0.03|0.06|0.8513|
+|=|          6|          7|         19|     162321.2958|         70|00:08:00|-0.06|0.03|0.8885|
+|=|         13|          7|         40|     162137.8885|         77|00:08:01|-0.05|0.03|0.8762|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          40    mean value:      162137.8885
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+40   40           14 1.6106 0.1284 3.2152               4                        1  0.1962       14
+
+# 2025-06-19 00:20:48 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+40           14 1.6106 0.1284 3.2152               4                        1  0.1962
+43           20 1.6120 0.0798 3.0192               4                        1  0.2383
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+44            8 1.1923 0.0867 6.6001               4                        1  0.1859
+# 2025-06-19 00:20:48 -04: Iteration 5 of 5
+# experimentsUsed: 357
+# remainingBudget: 43
+# currentBudget: 43
+# nbConfigurations: 6
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         14|          6|         40|     158540.6500|          6|00:08:01|   NA|  NA|    NA|
+|x|          3|          6|         44|     159769.2950|          8|00:08:00|-0.26|0.37|1.2116|
+|x|          9|          6|         40|     165662.3267|         10|00:08:00|-0.14|0.24|1.0135|
+|x|          8|          6|         19|     160210.9900|         12|00:08:00|-0.24|0.07|0.9685|
+|=|          6|          6|         44|     164396.8080|         14|00:08:00|-0.24|0.01|1.0161|
+|=|         12|          6|         40|     163332.8350|         16|00:08:00|-0.14|0.05|0.9541|
+|=|          2|          6|         44|     161683.9429|         18|00:08:00|-0.10|0.06|0.9011|
+|=|         13|          6|         44|     161950.1175|         20|00:08:00|-0.07|0.06|0.8867|
+|=|          5|          6|         44|     161978.6567|         22|00:08:00|-0.03|0.08|0.8792|
+|=|          7|          6|         40|     162011.3060|         24|00:08:00|-0.07|0.04|0.9013|
+|=|          1|          6|         44|     161967.8764|         26|00:08:00|-0.08|0.02|0.8980|
+|=|          4|          6|         40|     162062.2350|         28|00:08:00|-0.07|0.02|0.8963|
+|=|         11|          6|         40|     161973.2638|         30|00:08:00|-0.07|0.01|0.8988|
+|=|         10|          6|         40|     161880.9429|         32|00:08:00|-0.06|0.01|0.8876|
+|=|         15|          6|         44|     163223.6267|         38|00:08:01|-0.07|0.01|0.8872|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          44    mean value:      163223.6267
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+44   44            8 1.1923 0.0867 6.6001               4                        1  0.1859       34
+
+# 2025-06-19 02:20:55 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+44            8 1.1923 0.0867 6.6001               4                        1  0.1859
+40           14 1.6106 0.1284 3.2152               4                        1  0.1962
+48            6 0.7129 0.1021 5.5997               4                        1  0.2310
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+# 2025-06-19 02:20:55 -04: Stopped because there is not enough budget left to race more than the minimum (4).
+# You may either increase the budget or set 'minNbSurvival' to a lower value.
+# Iteration: 6
+# nbIterations: 6
+# experimentsUsed: 395
+# timeUsed: 0
+# remainingBudget: 5
+# currentBudget: 5
+# number of elites: 4
+# nbConfigurations: 4
+# Total CPU user time: 187287.6, CPU sys time: 2445.42, Wall-clock time: 26467.04
+# 2025-06-19 02:20:55 -04: Starting post-selection:
+# Configurations selected: 44, 40, 48, 19, 43.
+# Pending instances: 0, 0, 0, 0, 0.
+# 2025-06-19 02:20:55 -04: seed: 1674763049
+# Configurations: 5
+# Available experiments: 5
+# minSurvival: 1
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|.|         15|          5|         19|     154569.9500|          0|00:00:00|   NA|  NA|    NA|
+|.|          2|          5|         19|     157448.1400|          0|00:00:00|+0.70|0.85|0.5334|
+|.|         14|          5|         19|     158304.2767|          0|00:00:00|+0.07|0.38|0.7692|
+|.|          4|          5|         19|     158059.9250|          0|00:00:00|-0.03|0.23|0.8218|
+|.|          8|          5|         19|     157724.1040|          0|00:00:00|-0.07|0.15|0.8354|
+|.|          5|          5|         19|     159463.8133|          0|00:00:00|-0.13|0.06|0.9046|
+|.|          1|          5|         19|     159878.3557|          0|00:00:00|-0.06|0.09|0.8575|
+|.|          7|          5|         19|     159767.9138|          0|00:00:00|-0.07|0.06|0.8589|
+|.|          3|          5|         19|     159969.3744|          0|00:00:00|-0.05|0.06|0.8287|
+|.|          9|          5|         19|     160258.9900|          0|00:00:00|-0.03|0.07|0.8097|
+|.|          6|          5|         19|     161877.5464|          0|00:00:00|-0.07|0.03|0.8444|
+|.|         12|          5|         19|     161923.2167|          0|00:00:00|-0.06|0.03|0.8398|
+|.|         13|          5|         19|     162154.5769|          0|00:00:00|-0.06|0.02|0.8484|
+|.|         10|          5|         19|     161990.1671|          0|00:00:00|-0.07|0.01|0.8503|
+|.|         11|          5|         19|     161824.8633|          0|00:00:00|-0.07|0.00|0.8543|
+|=|         16|          5|         19|     161041.9781|          5|00:08:01|-0.06|0.01|0.8476|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          19    mean value:      161041.9781
+Description of the best-so-far configuration:
+   .ID. num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec .PARENT.
+19   19           10 2.0929 0.0702 3.0717               4                        1  0.1787       14
+
+# 2025-06-19 02:28:57 -04: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+48            6 0.7129 0.1021 5.5997               4                        1  0.2310
+44            8 1.1923 0.0867 6.6001               4                        1  0.1859
+40           14 1.6106 0.1284 3.2152               4                        1  0.1962
+# Total CPU user time: 189659.4, CPU sys time: 2475.471, Wall-clock time: 26948.31
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   num_hormigas   alfa    rho    tau valor_limitador valor_sin_nuevas_visitas rho_sec
+19           10 2.0929 0.0702 3.0717               4                        1  0.1787
+48            6 0.7129 0.1021 5.5997               4                        1  0.2310
+44            8 1.1923 0.0867 6.6001               4                        1  0.1859
+40           14 1.6106 0.1284 3.2152               4                        1  0.1962
+# Best configurations as commandlines (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+19 --num-hormigas 10 --alfa 2.0929 --rho 0.0702 --tau-as 3.0717 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.1787
+48 --num-hormigas 6 --alfa 0.7129 --rho 0.1021 --tau-as 5.5997 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.231
+44 --num-hormigas 8 --alfa 1.1923 --rho 0.0867 --tau-as 6.6001 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.1859
+40 --num-hormigas 14 --alfa 1.6106 --rho 0.1284 --tau-as 3.2152 --valor-limitador 4 --valor-sin-nuevas-visitas 1 --rho-sec 0.1962
+
+
+# Testing of elite configurations: 1 
+# Testing iteration configurations: FALSE 
+# 2025-06-19 02:28:57 -04: No test instances, skip testing
+Warning message:
+In readLines(con = file) :
+  incomplete final line found on '/home/alazcano/RESCOL/Instancias/test_container/test_2000/experimentation/parametros.txt'

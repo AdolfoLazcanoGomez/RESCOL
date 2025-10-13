@@ -25,7 +25,7 @@ void AntColonySystem::resolver()
     if(usar_tiempo){
         while (std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - comienzo_ejecucion) <= tiempo_total_ejecucion )
         {
-            std::cout << "hola" << std::endl;
+            //std::cout << "hola" << std::endl;
             iterar();
             mejor_solucion = guardar_mejor_solucion_iteracion();
             limpiar();
@@ -223,10 +223,6 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
         pair.second.cantidad = (1 - csi) * pair.second.cantidad + csi * tau;
     }
 
-    if (nodo == nullptr)
-    {
-        cout << "No hay nodos disponibles" << endl;
-    }
     return nodo;
 }
 

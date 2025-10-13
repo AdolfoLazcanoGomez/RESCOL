@@ -38,7 +38,6 @@ struct Camion
     double tiempo_restante = 500.0;
     double costo_total = 0.0;
     double costo_camino_camion  = 0.0;
-    double costo_total_camino_camion = 0.0;
 
 };
 
@@ -56,6 +55,7 @@ struct Hormiga
     double costo_camino = 0.0;                              // Costo del camino, costo asociado a la recolección y recorrido
     bool solucion_valida = true;                            
     double longitud_final_camiones = 0.0;
+    double costo_total_camino_camiones = 0.0;               // Costo final de la suma de los costos de todos los camiones.
     int id = 0;                                             // Identificador de la hormiga
     std::unordered_map<Arco *, Feromona> feromonas_locales; // Feromonas locales de la hormiga
     std::unordered_map<Arco*, int> arcos_no_visitados;      // Aristas no visitadas

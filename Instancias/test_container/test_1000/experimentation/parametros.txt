@@ -1,9 +1,0 @@
-### Hormigas con matriz de salida, y con beta0, eso se dejara por defecto
-# name          switch               type       values                  [conditions (using R syntax)]
-num_hormigas     "--num-hormigas "      i        (2, 30)
-alfa             "--alfa "               r        (0.01, 5)
-rho              "--rho "                r       (0.05, 0.3)
-tau              "--tau-as "               r        (1, 10)
-valor_limitador  "--valor-limitador "   c        (1,2,3,4)
-valor_sin_nuevas_visitas "--valor-sin-nuevas-visitas " c (1,2,3,4)
-rho_sec          "--rho-sec "           r         (0.05, 0.3)
