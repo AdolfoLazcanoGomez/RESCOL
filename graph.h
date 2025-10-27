@@ -54,6 +54,7 @@ struct Arco
 // Estructura para representar un grafo
 struct Graph
 {
+    Graph();
     std::map<int, Nodo> nodos;                                                          // Mapa de nodos del grafo
     std::unordered_map<int, Arco *> arcos;                                              // Mapa de aristas del grafo
     std::unordered_map<int, std::unordered_map<Arco *, double>> informacion_heuristica; // Información heurística
