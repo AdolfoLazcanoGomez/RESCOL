@@ -20,29 +20,37 @@ AntSystem::AntSystem(Graph *instancia, ACOArgs parametros) : ACO(instancia, para
 */
 void AntSystem::resolver()
 {
-    if(usar_tiempo){
-        std::atomic<bool> time_up(false);
-        while (std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - comienzo_ejecucion) <= tiempo_total_ejecucion )
+    // if(usar_tiempo){
+    //     std::atomic<bool> time_up(false);
+    //     while (std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - comienzo_ejecucion) <= tiempo_total_ejecucion )
+    if (usar_tiempo) {
+        comienzo_ejecucion = std::chrono::high_resolution_clock::now();
+        auto tiempo_total = std::chrono::duration_cast<std::chrono::high_resolution_clock::duration>(tiempo_total_ejecucion);
+        if (tiempo_total <= std::chrono::high_resolution_clock::duration::zero() &&
+            tiempo_total_ejecucion.count() > 0.0)
         {
+            tiempo_total = std::chrono::high_resolution_clock::duration{1};
+        }
+        const auto deadline = comienzo_ejecucion + tiempo_total;
 
-            std::thread iterar_thread([&time_up, this]() {
-                this->iterar();
-                time_up = true; // Marca que la función ha terminado
-            });
-
-            std::thread timer_thread([&time_up, this]() {
-                auto tiempo_total_ms = std::chrono::duration_cast<std::chrono::milliseconds>(this->tiempo_total_ejecucion).count();
-                for (int i = 0; i < tiempo_total_ms / 100 && !time_up && solucionCompleta(mejor_solucion) == true; ++i) {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-                    //reemplazar_hormiga();
-                }
-                time_up = true;
-            });
-
-            iterar_thread.join();
-            timer_thread.join();
-            
+            // std::thread iterar_thread([&time_up, this]() {
+            //     this->iterar();
+            //     time_up = true; // Marca que la función ha terminado
+            // });
+            // std::thread timer_thread([&time_up, this]() {
+            //     auto tiempo_total_ms = std::chrono::duration_cast<std::chrono::milliseconds>(this->tiempo_total_ejecucion).count();
+            //     for (int i = 0; i < tiempo_total_ms / 100 && !time_up && solucionCompleta(mejor_solucion) == true; ++i) {
+            //         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            //         //reemplazar_hormiga();
+            //     }
+            //     time_up = true;
+            // });
+            // iterar_thread.join();
+            // timer_thread.join();
             //iterar();
+        while (std::chrono::high_resolution_clock::now() < deadline)
+        {
+            iterar();
             mejor_solucion = guardar_mejor_solucion_iteracion();
             limpiar();
             iteraciones++;

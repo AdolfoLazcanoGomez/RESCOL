@@ -244,10 +244,24 @@ void ACO::construirSolucion(Hormiga &hormiga)
         auto stop = std::chrono::high_resolution_clock::now();        
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         acumulador_tiempo += duration.count();
-    }   
+    }
+    
+    for (auto *camion : hormiga.vector_camiones)
+    {
+        if (camion && camion->camino_final.empty())
+        {
+            camion->camino_final.insert(camion->camino_final.end(), camion->camino_tour.begin(), camion->camino_tour.end());
+            camion->camino_final.insert(camion->camino_final.end(), camion->camino_salida.begin(), camion->camino_salida.end());
+            camion->longitud_camino_final = camion->longitud_camino_tour + camion->longitud_camino_salida;
+            hormiga.saltosSalida = camion->longitud_camino_final - camion->longitud_camino_tour;
+        }
+    }
+
     file << "Epoca: " << epoca_actual << ", Evaluacion: " << evaluaciones << ", Mejor costo: " << mejor_costo << endl;
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_tour.begin(), hormiga.copia_camino_tour.end());
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_salida.begin(), hormiga.copia_camino_salida.end());
+    
+    calcular_costo_camino_camion(hormiga);
     hormiga.longitud_final_camiones += total_camino_tour_camion(hormiga) + total_camino_salida_camion(hormiga);
     hormiga.saltosSalida = hormiga.longitud_final_camiones - total_camino_tour_camion(hormiga); //no se para que es
     evaluaciones++;
@@ -390,14 +404,14 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                     {
                         Arco *arco = nullptr;
                         arco = i.first;
-                        if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante){ 
+                        if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante){ 
                             tau_eta = 1;
                             probabilidad[arco] = tau_eta;
                             total += tau_eta;
                             //cout << "if 1" << endl;
                             continue;
                         } else {
-                            if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante){
+                            if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante){
                                //cout << "else 1" << endl;
                                 return nullptr;
                             }
@@ -408,13 +422,13 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                 { // si no es bidireccional, se agrega a las probabilidades de paso
                     Arco *arco = nullptr;
                     arco = i.first;
-                    if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                    if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "if 2" << endl;
                         tau_eta = 1;
                         probabilidad[arco] = tau_eta;
                         total += tau_eta;
                     }else {
-                        if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                        if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "else 2" << endl;
                             return nullptr;
                         }
@@ -440,7 +454,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                         //Si el camion [aux] de la hormiga tiene capacidad y tiempo suficiente para pasar al siguiente nodo
                         Arco *arco = nullptr;
                         arco = i.first;
-                        if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                        if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "if 3" << endl;
                             if (arco->veces_recorrida <= valor_limitador)
                             {
@@ -455,7 +469,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                             }else {
                                 continue;
                             }
-                        } else if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                        } else if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "else 3" << endl;
                             return nullptr;
                         }
@@ -466,7 +480,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                     
                     Arco *arco = nullptr;
                     arco = i.first;
-                    if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                    if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "if 4" << endl;
                         if (arco->veces_recorrida <= valor_limitador)
                         {
@@ -479,7 +493,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                         } else {
                             continue;
                         }
-                    }else if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                    }else if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "else 4" << endl;
                         return nullptr;
                     }
@@ -519,7 +533,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                     {
                         Arco *arco = nullptr;
                         arco = i.first;
-                        if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                        if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "if 5" << endl;
                             if (arco->veces_recorrida <= valor_limitador)
                             {
@@ -538,7 +552,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                             }else {
                                 continue;
                             }
-                        } else if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                        } else if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "else 5" << endl;
                             return nullptr;
                         }
@@ -548,7 +562,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                 { // si no es bidireccional, se agrega a las probabilidades de paso
                     Arco *arco = nullptr;
                     arco = i.first;
-                    if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                    if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "if 6" << endl;
                         if (arco->veces_recorrida <= valor_limitador)
                         {
@@ -565,7 +579,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                         } else {
                             continue;
                         }
-                    } else if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                    } else if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "else 6" << endl;
                         return nullptr;
                     }
@@ -600,7 +614,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                 {
                     Arco *arco = nullptr;
                     arco = i.first;
-                    if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                    if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "if 7" << endl;
                         cantidad = hormiga.feromonas_locales[arco].cantidad;
                         if (arco->obligatoria == true){
@@ -645,7 +659,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
             { // si es bidireccional, se comprueba que el siguiente arco no sea una vuelta en U o si es la unica opcion, en este ultimo caso, se agrega a las probabilidades de paso
                 Arco *arco = nullptr;
                 arco = i.first;
-                if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                     //cout << "if 8" << endl;
                     cantidad = hormiga.feromonas_locales[arco].cantidad;
                     if (arco->obligatoria == true){
@@ -659,7 +673,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                     if (debug)
                         cout << "arco:" << arco->origen->id << " " << arco->destino->id << " tau_eta: " << tau_eta << endl;
                     } else {
-                        if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                        if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                             //cout << "else 8" << endl;
                             return nullptr;
                         }
@@ -669,7 +683,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
             { // si no es bidireccional, se agrega a las probabilidades de paso
                 Arco *arco = nullptr;
                 arco = i.first;
-                if (arco->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante ){
+                if (arco->costo_recorrido <= hormiga.vector_camiones[aux]->capacidad_restante ){
                     //cout << "if 9" << endl;
                     cantidad = hormiga.feromonas_locales[arco].cantidad;
                     if (arco->obligatoria == true){
@@ -682,7 +696,7 @@ Nodo *ACO::eligeSiguiente(Hormiga &hormiga, int &aux)
                     total += tau_eta;
                     probabilidad[arco] = tau_eta;
                 } else {
-                    if (arco->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante ){
+                    if (arco->costo_recorrido > hormiga.vector_camiones[aux]->capacidad_restante ){
                         //cout << "else 9" << endl;
                         return nullptr;
                     }
@@ -773,9 +787,9 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
         if (hormiga.feromonas_locales[arco].cantidad < umbral_inferior) hormiga.feromonas_locales[arco].cantidad = umbral_inferior;
         else hormiga.feromonas_locales[arco].cantidad *= (1 - rho_secundario);
 
-        hormiga.vector_camiones[aux]->capacidad_restante -= arco->costo_recoleccion;
-        hormiga.vector_camiones[aux]->tiempo_restante -= arco->costo_recorrido;
-        hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recoleccion;
+        hormiga.vector_camiones[aux]->capacidad_restante -= arco->costo_recorrido;
+        //hormiga.vector_camiones[aux]->tiempo_restante -= arco->costo_recorrido;
+        hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recorrido;
     }
     else {
 
@@ -881,7 +895,7 @@ void ACO::buscarSalidaMatriz(Hormiga &hormiga, int &aux)
         hormiga.vector_camiones[aux]->camino_salida.push_back(*arco);
         hormiga.nodo_actual = nodo;
         hormiga.vector_camiones[aux]->longitud_camino_salida += 1;
-        hormiga.costo_camino += (arco->costo_recoleccion/2);
+        //hormiga.vector_camiones[aux]->costo_camino_camion += (arco->costo_recoleccion/2);
     }
     return;
 }
@@ -953,7 +967,7 @@ void ACO::buscarDijkstra(Hormiga &hormiga, int &aux)
             hormiga.vector_camiones[aux]->camino_salida.push_back(*arco);
             hormiga.vector_camiones[aux]->longitud_camino_salida += 1;
             hormiga.nodo_actual = arco->destino;
-            hormiga.vector_camiones[aux]->costo_camino_camion += (arco->costo_recoleccion/2);
+            hormiga.vector_camiones[aux]->costo_camino_camion += (arco->costo_recorrido/2);
             if (enNodoTerminal(hormiga)) calcular_costo_camino_camion(hormiga);
         }
     }
@@ -962,6 +976,7 @@ void ACO::buscarDijkstra(Hormiga &hormiga, int &aux)
 
 void ACO::calcular_costo_camino_camion(Hormiga &hormiga){
 
+    hormiga.costo_camino = 0.0;
     for (auto &camion : hormiga.vector_camiones){
         hormiga.costo_camino += camion->costo_camino_camion;
     }
@@ -970,6 +985,7 @@ void ACO::calcular_costo_camino_camion(Hormiga &hormiga){
 void ACO::calcular_longitud_camiones(Hormiga &hormiga){
 
     for (auto &camion : hormiga.vector_camiones){
+        if (!camion) continue;
         hormiga.longitud_final_camiones += camion->longitud_camino_tour + camion->longitud_camino_salida;
     }
 }
@@ -1020,6 +1036,7 @@ Nodo* ACO::ArcosNoVisitadoObligatorios(Hormiga &hormiga, int flag) {
 bool ACO::solucionCompleta(Hormiga &hormiga)
 {
     if(contarArcosNoVisitadosObligatorios(hormiga) == 0){
+        //cout << '1' << endl;
         return true;
     }
     return false;
@@ -1290,6 +1307,7 @@ Hormiga ACO::guardar_mejor_solucion_iteracion()
     */
     for (auto &hormiga : hormigas)
     {
+        calcular_costo_camino_camion(hormiga);
         if (hormiga.solucion_valida){
             if (hormiga.costo_camino < mejor_costo && (hormiga.longitud_final_camiones) < mejor_longitud)
             {
