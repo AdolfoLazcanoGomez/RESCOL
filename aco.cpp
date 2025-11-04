@@ -248,6 +248,8 @@ void ACO::construirSolucion(Hormiga &hormiga)
     file << "Epoca: " << epoca_actual << ", Evaluacion: " << evaluaciones << ", Mejor costo: " << mejor_costo << endl;
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_tour.begin(), hormiga.copia_camino_tour.end());
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_salida.begin(), hormiga.copia_camino_salida.end());
+    
+    calcular_costo_camino_camion(hormiga);
     hormiga.longitud_final_camiones += total_camino_tour_camion(hormiga) + total_camino_salida_camion(hormiga);
     hormiga.saltosSalida = hormiga.longitud_final_camiones - total_camino_tour_camion(hormiga); //no se para que es
     evaluaciones++;
@@ -881,7 +883,7 @@ void ACO::buscarSalidaMatriz(Hormiga &hormiga, int &aux)
         hormiga.vector_camiones[aux]->camino_salida.push_back(*arco);
         hormiga.nodo_actual = nodo;
         hormiga.vector_camiones[aux]->longitud_camino_salida += 1;
-        hormiga.costo_camino += (arco->costo_recoleccion/2);
+        //hormiga.vector_camiones[aux]->costo_camino_camion += (arco->costo_recoleccion/2);
     }
     return;
 }
@@ -962,6 +964,7 @@ void ACO::buscarDijkstra(Hormiga &hormiga, int &aux)
 
 void ACO::calcular_costo_camino_camion(Hormiga &hormiga){
 
+    hormiga.costo_camino = 0.0;
     for (auto &camion : hormiga.vector_camiones){
         hormiga.costo_camino += camion->costo_camino_camion;
     }
@@ -970,6 +973,7 @@ void ACO::calcular_costo_camino_camion(Hormiga &hormiga){
 void ACO::calcular_longitud_camiones(Hormiga &hormiga){
 
     for (auto &camion : hormiga.vector_camiones){
+        if (!camion) continue;
         hormiga.longitud_final_camiones += camion->longitud_camino_tour + camion->longitud_camino_salida;
     }
 }
@@ -1291,6 +1295,7 @@ Hormiga ACO::guardar_mejor_solucion_iteracion()
     */
     for (auto &hormiga : hormigas)
     {
+        calcular_costo_camino_camion(hormiga);
         if (hormiga.solucion_valida){
             if (hormiga.costo_camino < mejor_costo && (hormiga.longitud_final_camiones) < mejor_longitud)
             {
