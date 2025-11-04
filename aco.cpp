@@ -244,7 +244,19 @@ void ACO::construirSolucion(Hormiga &hormiga)
         auto stop = std::chrono::high_resolution_clock::now();        
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         acumulador_tiempo += duration.count();
-    }   
+    }
+    
+    for (auto *camion : hormiga.vector_camiones)
+    {
+        if (camion && camion->camino_final.empty())
+        {
+            camion->camino_final.insert(camion->camino_final.end(), camion->camino_tour.begin(), camion->camino_tour.end());
+            camion->camino_final.insert(camion->camino_final.end(), camion->camino_salida.begin(), camion->camino_salida.end());
+            camion->longitud_camino_final = camion->longitud_camino_tour + camion->longitud_camino_salida;
+            hormiga.saltosSalida = camion->longitud_camino_final - camion->longitud_camino_tour;
+        }
+    }
+    
     file << "Epoca: " << epoca_actual << ", Evaluacion: " << evaluaciones << ", Mejor costo: " << mejor_costo << endl;
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_tour.begin(), hormiga.copia_camino_tour.end());
     // hormiga.copia_camino_final.insert(hormiga.copia_camino_final.end(), hormiga.copia_camino_salida.begin(), hormiga.copia_camino_salida.end());
