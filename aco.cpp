@@ -774,7 +774,7 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
         else hormiga.feromonas_locales[arco].cantidad *= (1 - rho_secundario);
 
         hormiga.vector_camiones[aux]->capacidad_restante -= arco->costo_recoleccion;
-        hormiga.vector_camiones[aux]->tiempo_restante -= arco->costo_recorrido;
+        //hormiga.vector_camiones[aux]->tiempo_restante -= arco->costo_recorrido;
         hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recoleccion;
     }
     else {
@@ -1020,6 +1020,7 @@ Nodo* ACO::ArcosNoVisitadoObligatorios(Hormiga &hormiga, int flag) {
 bool ACO::solucionCompleta(Hormiga &hormiga)
 {
     if(contarArcosNoVisitadosObligatorios(hormiga) == 0){
+        //cout << '1' << endl;
         return true;
     }
     return false;
