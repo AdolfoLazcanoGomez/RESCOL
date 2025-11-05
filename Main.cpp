@@ -160,28 +160,28 @@ int main(int argc, char *argv[])
     {
         aco->exportar_solucion(duration, parametros_base);
     }
-    // if (!parametros_base.silence){
-    //     aco->exportar_mapa_resultados();
-    //     std::string archivo_salida = aco->get_filename();
+    if (!parametros_base.silence){
+        aco->exportar_mapa_resultados();
+        std::string archivo_salida = aco->get_filename();
 
-    //     std::stringstream ss;
-    //     ss << "python Grafico.py " << archivo_salida << " " << config.show_grafico;
-    //     std::string comando = ss.str();
+        std::stringstream ss;
+        ss << "python Grafico.py " << archivo_salida << " " << config.show_grafico;
+        std::string comando = ss.str();
 
-    //     std::stringstream ss2;
-    //     ss2 << "python Visualizador.py " << parametros_base.nombre_instancia << " " << archivo_salida << " " << config.show_grafico;
-    //     std::string comando2 = ss2.str();
+        std::stringstream ss2;
+        ss2 << "python Visualizador.py " << parametros_base.nombre_instancia << " " << archivo_salida << " " << config.show_grafico;
+        std::string comando2 = ss2.str();
         
-    //     cout << "Programa finalizado correctamente" << endl;
-    //     for (int i = 0; i < parametros_base.num_hormigas; i++)
-    //         cout << "🐜 ";
-    //     cout << endl;
-    //     cout << endl;
+        cout << "Programa finalizado correctamente" << endl;
+        for (int i = 0; i < parametros_base.num_hormigas; i++)
+            cout << "🐜 ";
+        cout << endl;
+        cout << endl;
         
 
-    //     std::system(comando.c_str());    
-    //     std::system(comando2.c_str());     
-    // }
+        std::system(comando.c_str());    
+        std::system(comando2.c_str());     
+    }
 
     //liberar_memoria(grafo);
     delete aco;
