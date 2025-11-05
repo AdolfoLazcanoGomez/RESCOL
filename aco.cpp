@@ -1299,6 +1299,208 @@ void ACO::mostrar_solucion(bool show_solucion)
     Retorna:
     - Hormiga: La mejor hormiga
 */
+
+void ACO::exportar_solucion(std::chrono::microseconds duration, ACOArgs parametros_base)
+{
+    long long suma_recoleccion = 0;
+    long long suma_recorrer = 0;
+    long long costo_pesos_pasada = 0;
+    double total_longitud_tour = 0.0;
+    double total_longitud_salida = 0.0;
+    for (auto &arco : grafo->arcos)
+    {
+        suma_recoleccion += arco.second->costo_recoleccion;
+    }
+
+    Nodo *nodo_inicio = nullptr;
+    Nodo *nodo_fin = nullptr;
+
+    for (auto *camion : mejor_solucion.vector_camiones)
+    {
+        if (!camion)
+            continue;
+
+        total_longitud_tour += camion->longitud_camino_tour;
+        total_longitud_salida += camion->longitud_camino_salida;
+
+        for (auto &arco : camion->camino_final)
+        {
+            suma_recorrer += arco.costo_recorrido;
+        }
+
+        if (!camion->camino_final.empty())
+        {
+            if (!nodo_inicio)
+            {
+                nodo_inicio = camion->camino_final.front().origen;
+            }
+            nodo_fin = camion->camino_final.back().destino;
+        }
+    }
+
+    costo_pesos_pasada = suma_recorrer - suma_recoleccion;
+
+    ruta_archivo_salida_csv = directorio_salida.string() + "/" + prefijo_salida + ".csv";
+    std::ofstream archivo_salida_csv(ruta_archivo_salida_csv);
+    archivo_salida_csv << nombre_instancia_salida << ",";
+    archivo_salida_csv << nombre_metodo << ",";
+
+    if (timeout_flag_global)
+    {
+        archivo_salida_csv << "inf" << ",";
+    }
+    else
+    {
+        std::ostringstream costo;
+        costo << std::fixed << std::setprecision(3) << mejor_solucion.costo_camino;
+        archivo_salida_csv << costo.str() << ",";
+    }
+
+    archivo_salida_csv << mejor_solucion.longitud_final_camiones << ",";
+    archivo_salida_csv << (nodo_inicio ? nodo_inicio->id : -1) << ",";
+    archivo_salida_csv << (nodo_fin ? nodo_fin->id : -1) << ",";
+    archivo_salida_csv << duration.count() << ",";
+    archivo_salida_csv << total_longitud_tour << ",";
+    archivo_salida_csv << total_longitud_salida << ",";
+    archivo_salida_csv << grafo->arcos.size() << ",";
+    archivo_salida_csv << suma_recoleccion << ",";
+    archivo_salida_csv << suma_recorrer << std::endl;
+    archivo_salida_csv.close();
+
+    ruta_archivo_config_salida_csv = directorio_salida.string() + "/" + prefijo_salida + "_config.csv";
+    std::ofstream archivo_config_salida_csv(ruta_archivo_config_salida_csv);
+    archivo_config_salida_csv << usarMatrizSecundaria << ",";
+    archivo_config_salida_csv << usaDijkstra << ",";
+    archivo_config_salida_csv << parametros_base.oscilador << ",";
+    archivo_config_salida_csv << parametros_base.limitador << ",";
+    archivo_config_salida_csv << parametros_base.valor_limitador << ",";
+    archivo_config_salida_csv << parametros_base.beta_0 << ",";
+    archivo_config_salida_csv << alfa << ",";
+    archivo_config_salida_csv << beta << ",";
+    archivo_config_salida_csv << beta_salida << ",";
+    archivo_config_salida_csv << rho << ",";
+    archivo_config_salida_csv << rho_secundario << ",";
+    archivo_config_salida_csv << rho_salida << ",";
+    archivo_config_salida_csv << tau << ",";
+    if (usar_iteraciones)
+    {
+        archivo_config_salida_csv << parametros_base.iteraciones_max << ",";
+        archivo_config_salida_csv << "-1" << ",";
+    }
+    else
+    {
+        archivo_config_salida_csv << "-1" << ",";
+        archivo_config_salida_csv << parametros_base.evaluaciones_maximas << ",";
+    }
+    archivo_config_salida_csv << parametros_base.umbral_inferior << ",";
+    archivo_config_salida_csv << parametros_base.num_hormigas << ",";
+    archivo_config_salida_csv << parametros_base.epocas << ",";
+    if (parametros_base.full_aleatorio)
+    {
+        archivo_config_salida_csv << "-1" << ",";
+    }
+    else
+    {
+        archivo_config_salida_csv << parametros_base.semilla << ",";
+    }
+    archivo_config_salida_csv << parametros_base.umbral_superior << ",";
+    archivo_config_salida_csv << parametros_base.umbral_sin_mejora_limite << ",";
+    archivo_config_salida_csv << parametros_base.a << ",";
+    archivo_config_salida_csv << parametros_base.q_0 << ",";
+    archivo_config_salida_csv << parametros_base.csi << ",";
+    archivo_config_salida_csv << parametros_base.usar_iteraciones << ",";
+    archivo_config_salida_csv << parametros_base.usar_evaluaciones << ",";
+    archivo_config_salida_csv << parametros_base.irace << ",";
+    archivo_config_salida_csv << parametros_base.silence << ",";
+    archivo_config_salida_csv << parametros_base.full_aleatorio << std::endl;
+    archivo_config_salida_csv.close();
+
+    if (usar_bd)
+    {
+        std::stringstream ss;
+        ss << "python POSTDB.py " << ruta_archivo_salida_csv << " " << ruta_archivo_config_salida_csv;
+        std::string comando3 = ss.str();
+        std::system(comando3.c_str());
+    }
+
+    std::string ruta_archivo_salida = directorio_salida.string() + "/" + prefijo_salida + ".txt";
+    std::ofstream archivo_salida(ruta_archivo_salida);
+    archivo_salida << "Mejor longitud: " << mejor_solucion.longitud_final_camiones << std::endl;
+    archivo_salida << "Longitud tour total: " << total_longitud_tour << std::endl;
+    archivo_salida << "Longitud salida total: " << total_longitud_salida << std::endl;
+    archivo_salida << "Cantidad arcos: " << grafo->arcos.size() << std::endl;
+    archivo_salida << "Costo recoleccion: " << suma_recoleccion << std::endl;
+    archivo_salida << "Costo recorrer: " << suma_recorrer << std::endl;
+    archivo_salida << "Costo pesos pasada: " << costo_pesos_pasada << std::endl;
+    if (timeout_flag_global)
+    {
+        archivo_salida << "Mejor costo: inf" << std::endl;
+    }
+    else
+    {
+        std::ostringstream costo;
+        costo << std::fixed << std::setprecision(3) << mejor_solucion.costo_camino;
+        archivo_salida << "Mejor costo: " << costo.str() << std::endl;
+    }
+    archivo_salida << "Nodo inicio: " << (nodo_inicio ? nodo_inicio->id : -1) << std::endl;
+    archivo_salida << "Nodo fin: " << (nodo_fin ? nodo_fin->id : -1) << std::endl;
+    archivo_salida << "Tiempo de resolucion: " << duration.count() << " microsegundos" << std::endl;
+
+    if (!mejor_solucion.vector_camiones.empty())
+    {
+        archivo_salida << "La solución por camión es:" << std::endl;
+        int indice_camion = 1;
+        for (auto *camion : mejor_solucion.vector_camiones)
+        {
+            if (!camion)
+                continue;
+
+            archivo_salida << "Camion " << indice_camion++ << ": ";
+            if (!camion->camino_final.empty())
+            {
+                archivo_salida << camion->camino_final.front().origen->id;
+                for (auto &arco : camion->camino_final)
+                {
+                    archivo_salida << " -> " << arco.destino->id;
+                }
+            }
+            archivo_salida << std::endl;
+            archivo_salida << "  Longitud tour: " << camion->longitud_camino_tour << std::endl;
+            archivo_salida << "  Longitud salida: " << camion->longitud_camino_salida << std::endl;
+            archivo_salida << "  Longitud total: " << camion->longitud_camino_final << std::endl;
+            std::ostringstream costo_camion;
+            costo_camion << std::fixed << std::setprecision(3) << camion->costo_camino_camion;
+            archivo_salida << "  Costo recorrido: " << costo_camion.str() << std::endl;
+        }
+    }
+    else
+    {
+        archivo_salida << "No se registraron camiones en la mejor solución." << std::endl;
+    }
+    archivo_salida.close();
+
+    std::string camino_file = directorio_salida.string() + "/" + prefijo_salida + "_camino.txt";
+    std::ofstream archivo_camino(camino_file);
+    int indice_camion = 1;
+    for (auto *camion : mejor_solucion.vector_camiones)
+    {
+        if (!camion)
+            continue;
+
+        archivo_camino << "Camion " << indice_camion++ << ":";
+        if (!camion->camino_final.empty())
+        {
+            archivo_camino << " " << camion->camino_final.front().origen->id;
+            for (auto &arco : camion->camino_final)
+            {
+                archivo_camino << " -> " << arco.destino->id;
+            }
+        }
+        archivo_camino << std::endl;
+    }
+    archivo_camino.close();
+}
+
 Hormiga ACO::guardar_mejor_solucion_iteracion()
 {
     /*
