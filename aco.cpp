@@ -1260,39 +1260,39 @@ void ACO::mostrar_solucion(bool show_solucion)
 //     archivo.close();
 // }
 
-// void ACO::exportar_mapa_resultados()
-// {
-//     for (auto &par : mejor_solucion.arcos_visitados_tour)
-//     {
-//         Arco *arco = par.first;
-//         int suma = par.second;
+void ACO::exportar_mapa_resultados()
+{
+    for (auto &par : mejor_solucion.arcos_visitados_tour)
+    {
+        Arco *arco = par.first;
+        int suma = par.second;
 
-//         // Sumar el valor del segundo mapa
-//         if (mejor_solucion.arcos_visitados_salida.find(arco) != mejor_solucion.arcos_visitados_salida.end())
-//         {
-//             suma += mejor_solucion.arcos_visitados_salida[arco];
-//         }
+        // Sumar el valor del segundo mapa
+        if (mejor_solucion.arcos_visitados_salida.find(arco) != mejor_solucion.arcos_visitados_salida.end())
+        {
+            suma += mejor_solucion.arcos_visitados_salida[arco];
+        }
 
-//         // Agregar al mapa de suma
-//         mejor_solucion.arcos_visitados_final[arco] = suma;
-//     }
-//     // Abre el archivo para escribir
-//     std::string mapa_file = directorio_salida.string() + "/" + prefijo_salida  + "_mapa.txt";
-//     std::ofstream archivo(mapa_file);
-//     // Escribe cada arco y la cantidad de veces que se pasó por él
-//     // sumar arcos visitados de salida
-//     for (const auto &arco : mejor_solucion.arcos_visitados_final)
-//     {
-//         auto it = mejor_solucion.arcos_visitados_final.find(arco.first);
-//         if (it != mejor_solucion.arcos_visitados_final.end())
-//         {
-//             archivo << "(" << arco.first->origen->id << ", " << arco.first->destino->id << ") "
-//                     << " : " << (arco.second) << endl;
-//         }
-//     }
+        // Agregar al mapa de suma
+        mejor_solucion.arcos_visitados_final[arco] = suma;
+    }
+    // Abre el archivo para escribir
+    std::string mapa_file = directorio_salida.string() + "/" + prefijo_salida  + "_mapa.txt";
+    std::ofstream archivo(mapa_file);
+    // Escribe cada arco y la cantidad de veces que se pasó por él
+    // sumar arcos visitados de salida
+    for (const auto &arco : mejor_solucion.arcos_visitados_final)
+    {
+        auto it = mejor_solucion.arcos_visitados_final.find(arco.first);
+        if (it != mejor_solucion.arcos_visitados_final.end())
+        {
+            archivo << "(" << arco.first->origen->id << ", " << arco.first->destino->id << ") "
+                    << " : " << (arco.second) << endl;
+        }
+    }
 
-//     archivo.close();
-//}
+    archivo.close();
+}
 /*
     Este método guarda la mejor solución, es decir, la hormiga con el mejor(menor) costo y longitud de camino.
 
