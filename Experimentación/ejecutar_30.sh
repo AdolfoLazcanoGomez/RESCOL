@@ -25,7 +25,7 @@ if [[ -z "$PROJECT_ROOT" ]]; then
 fi
 
 EXECUTABLE="$PROJECT_ROOT/RESCOL"
-DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/Instancias_CN"
+DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/CN"
 INSTANCES_DIR="${INSTANCES_DIR:-$DEFAULT_INSTANCES_DIR}"
 if [[ ! -d "$INSTANCES_DIR" ]]; then
   echo "No se encontró el directorio de instancias: $INSTANCES_DIR" >&2
@@ -46,7 +46,7 @@ TAU="2.06"
 #USAR_ITERACIONES="--usar-iteraciones"
 USAR_LIMITADOR="--usar-limitador"
 USAR_TIEMPO="--usar-tiempo"
-TIEMPO_MAX="30"
+TIEMPO_MAX="10"
 VALOR_LIMITADOR="1"
 SILENCE="--silence"
 #DIR_SALIDA="./resultados"
@@ -55,7 +55,7 @@ RESCOL="--rescol"
 
 ## Ejecutar el comando 10 veces con la primera semilla fija y las siguientes secuenciales
 
-RESULTS_ROOT="$SCRIPT_DIR/results_30"
+RESULTS_ROOT="$SCRIPT_DIR/results_10"
 mkdir -p "$RESULTS_ROOT"
 
 #SEMILLA_INICIAL=1234567
