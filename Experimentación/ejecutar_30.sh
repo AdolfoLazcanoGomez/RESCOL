@@ -88,7 +88,7 @@ for INPUT_FILE in "$INSTANCES_DIR"/*.txt; do
       echo "=== Semilla $CURRENT_SEMILLA ==="
       "$EXECUTABLE" "$INPUT_FILE" --metodo $METODO --alfa $ALFA --rho $RHO --tau-as $TAU \
         --tiempo-max $TIEMPO_MAX --num-hormigas $NUM_HORMIGAS --epocas $EPOCAS $salida_Floyd_Warshall \
-        $BETA0 $USAR_TIEMPO $USAR_LIMITADOR --valor-limitador $VALOR_LIMITADOR $SILENCE \
+        $BETA0 $USAR_TIEMPO $USAR_LIMITADOR --salida-dijkstra --valor-limitador $VALOR_LIMITADOR $SILENCE \
         --semilla $CURRENT_SEMILLA --dir-salida "$DIR_SALIDA" --prefijo-salida $PREFIJO_SALIDA $RESCOL
     } | tee "$OUTPUT_FILE" >> "$INSTANCE_LOG"
     if [[ -f "$DIR_SALIDA/nuevos_camino.txt" ]]; then
