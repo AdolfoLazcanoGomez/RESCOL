@@ -1,10 +1,10 @@
-parameterFile <- "/home/alazcano/RESCOL/Experimentacion/parametros.txt"
+parameterFile <- "/home/alazcano/RESCOL/irace_test/parametros.txt"
 
-trainInstancesDir <- "/home/alazcano/RESCOL/Instancias/test"
+trainInstancesDir <- "/home/alazcano/RESCOL/Instancias/QN"
 
 targetRunner <- "/home/alazcano/RESCOL/Experimentacion/target_runner.sh"
 
-maxExperiments <- 3000
+maxExperiments <- 1000
 testType <- "F-test"
 elitist <- 1
 boundMax <- 20
