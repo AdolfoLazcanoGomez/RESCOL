@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizador</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    body { font-family: sans-serif; }
+    #controls { margin: 10px; }
+    button { margin-right: 5px; }
+    svg { border: 1px solid #ccc; cursor: move; }
+    .link.req { stroke: steelblue; stroke-width: 1.5px; }
+    .link.noreq { stroke: gray; stroke-dasharray: 4 2; stroke-width: 1.5px; }
+    .link.path-first { stroke: red; stroke-width: 2.5px; }
+    .link.path-repeat { stroke: orange; stroke-width: 2.5px; }
+    .node.start { fill: green; }
+    .node.end { fill: purple; }
+    .node.normal { fill: lightgray; }
+    .current { stroke: yellow; stroke-width: 4px; fill: none; }
+  </style>
+</head>
+<body>
+
+  <div id="controls">
+    <input type="file" id="fileInst" accept=".txt">
+    <input type="file" id="fileSol" accept=".txt">
+    <button id="btnLoad">Cargar ruta</button>
+    <br><br>
+    <button id="btnBack">Atrás</button>
+    <button id="btnNext">Siguiente</button>
+    <button id="btnReset">Reiniciar</button>
+    <button id="btnAll">Todo</button>
+    <span id="status">Paso 0 / 0</span>
+  </div>
+
+  <svg width="800" height="600"></svg>
+
+  <script>
+    const svg = d3.select("svg");
+    const width = +svg.attr("width"), height = +svg.attr("height");
+    // Grupo que contendrá nodos y enlaces
+    const g = svg.append("g");
+
+    // Zoom y Pan
+    const zoom = d3.zoom()
+      .scaleExtent([0.1, 10])
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
+    svg.call(zoom);
+
+    // Definición de marcadores para flechas
+    const defs = svg.append("defs");
+    defs.selectAll("marker")
+      .data(["req","noreq","path"])
+      .enter().append("marker")
+        .attr("id", d => "arrow-" + d)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 15)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+      .append("path")
+        .attr("d", "M0,-5L10,0L0,5");
+
+    let nodes = [], links = [], route = [];
+    let step = 0, visitCount = {};
+
+    function parseInstance(text) {
+      let aristas_req = [], aristas_noreq = [], nodos_inicio = [], nodos_termino = [];
+      let modo = null;
+      for (let line of text.split("\n").map(l=>l.trim())) {
+        if (!line) continue;
+        if (line.startsWith("LISTA_ARISTAS_REQ")) { modo="req"; continue; }
+        if (line.startsWith("LISTA_ARISTAS_NOREQ")) { modo="noreq"; continue; }
+        if (line.startsWith("NODOS_INICIALES")) { modo="inicio"; continue; }
+        if (line.startsWith("NODOS_TERMINO")) { modo="termino"; continue; }
+        if (line.startsWith("CORDENADAS_NODOS")) break;
+
+        if (modo==="req"||modo==="noreq") {
+          let [tipo,u,v,peso] = line.split(/\s+/);
+          u=+u; v=+v;
+          let arc = { source:u, target:v, tipo, req:modo==="req" };
+          (modo==="req"? aristas_req: aristas_noreq).push(arc);
+          if(tipo==="bi"){
+            (modo==="req"? aristas_req: aristas_noreq)
+              .push({ source:v, target:u, tipo, req:modo==="req" });
+          }
+        } else if (modo==="inicio") {
+          nodos_inicio.push(+line);
+        } else if (modo==="termino") {
+          nodos_termino.push(+line);
+        }
+      }
+      return { aristas_req, aristas_noreq, nodos_inicio, nodos_termino };
+    }
+
+    function parseSolution(text) {
+      let ruta = [];
+      let lectura = false;
+      for (let ln of text.split("\n")) {
+        if (lectura) {
+          let v = parseInt(ln);
+          if (!isNaN(v)) ruta.push(v);
+        }
+        if (ln.startsWith("La soluci")) lectura = true;
+      }
+      return ruta;
+    }
+
+    document.getElementById("btnLoad").onclick = () => {
+      let f1 = document.getElementById("fileInst").files[0];
+      let f2 = document.getElementById("fileSol").files[0];
+      if(!f1||!f2) return alert("Selecciona ambos ficheros");
+      Promise.all([f1.text(), f2.text()]).then(([ti, ts])=>{
+        let inst = parseInstance(ti);
+        route = parseSolution(ts);
+        buildGraph(inst);
+        resetRoute();
+      });
+    };
+
+    function buildGraph({aristas_req, aristas_noreq, nodos_inicio, nodos_termino}) {
+      // Limpiar gráfico previo
+      g.selectAll("*").remove();
+      nodes = [];
+      links = aristas_req.concat(aristas_noreq);
+      const nodeSet = new Set();
+      links.forEach(e=>{ nodeSet.add(e.source); nodeSet.add(e.target); });
+      nodes = Array.from(nodeSet).map(id=>({
+        id,
+        group: nodos_inicio.includes(id) ? "start" :
+               nodos_termino.includes(id)? "end" : "normal"
+      }));
+
+      const sim = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d=>d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width/2, height/2));
+
+      const pairCount = {};
+      links.forEach(l=>{
+        let key = [l.source,l.target].sort().join("-");
+        pairCount[key] = (pairCount[key]||0) + 1;
+      });
+
+      // Dibujar enlaces
+      const linkSel = g.append("g").selectAll("path")
+        .data(links)
+        .enter().append("path")
+          .attr("class", d => "link " + (d.req?"req":"noreq"))
+          .attr("marker-end", d=>"url(#arrow-" + (d.req?"req":"noreq") +")");
+
+      // Dibujar nodos
+      const nodeSel = g.append("g").selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+          .attr("r", 8)
+          .attr("class", d=>"node " + d.group)
+          .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+      // Etiquetas
+      const labelSel = g.append("g").selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+          .attr("dy", -12)
+          .attr("text-anchor", "middle")
+          .text(d=>d.id)
+          .style("font-size","10px");
+
+      sim.on("tick", () => {
+        nodeSel.attr("cx", d=>d.x).attr("cy", d=>d.y);
+        labelSel.attr("x", d=>d.x).attr("y", d=>d.y);
+        linkSel.attr("d", d => {
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
+          const dr = pairCount[[d.source.id,d.target.id].sort().join("-")]>1
+                   ? (d.source.id < d.target.id ? 30 : -30)
+                   : 0;
+          return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,${dr>0?1:0} ${d.target.x},${d.target.y}`;
+        });
+      });
+
+      function dragstarted(event,d){ if(!event.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; }
+      function dragged(event,d){ d.fx=event.x; d.fy=event.y; }
+      function dragended(event,d){ if(!event.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }
+    }
+
+    function updateStatus() {
+      document.getElementById("status")
+        .textContent = `Paso ${step} / ${route.length}`;
+    }
+
+    function resetRoute() {
+      step = 0;
+      visitCount = {};
+      g.selectAll("path.link.path-first, path.link.path-repeat").remove();
+      g.selectAll("circle.current").classed("current", false);
+      updateStatus();
+    }
+
+    function drawStep() {
+      if (step >= route.length-1) return;
+      const u = route[step], v = route[step+1];
+      const key = [u,v].sort().join("-");
+      visitCount[key] = (visitCount[key]||0) + 1;
+      const first = visitCount[key]===1;
+
+      // Enlace resaltado
+      g.append("path")
+        .datum({source:{id:u}, target:{id:v}})
+        .attr("class", "link path-" + (first?"first":"repeat"))
+        .attr("marker-end", "url(#arrow-path)")
+        .attr("d", d => {
+          const src = nodes.find(n=>n.id===d.source.id);
+          const tgt = nodes.find(n=>n.id===d.target.id);
+          return `M${src.x},${src.y} L${tgt.x},${tgt.y}`;
+        });
+
+      // Nodo actual
+      g.selectAll("circle.current").classed("current", false);
+      g.selectAll("circle")
+        .filter(d=>d.id===route[step+1])
+        .classed("current", true);
+
+      step++;
+      updateStatus();
+    }
+
+    document.getElementById("btnNext").onclick = drawStep;
+    document.getElementById("btnBack").onclick = () => {
+      if (step>0) {
+        const target = step-1; resetRoute();
+        for (let i=0; i<target; i++) drawStep();
+      }
+    };
+    document.getElementById("btnReset").onclick = resetRoute;
+    document.getElementById("btnAll").onclick = () => { while (step < route.length-1) drawStep(); };
+  </script>
+
+</body>
+</html>
