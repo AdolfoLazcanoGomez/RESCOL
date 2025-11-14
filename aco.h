@@ -32,17 +32,13 @@ struct Camion
     double longitud_camino_salida = 0.0;                    // Longitud total de camino de salida recorrido
     double longitud_camino_final = 0.0;                    
 
-    double capacidad_maxima = 10000.0;                      // Capacidad máxima en kg
-    double capacidad_restante = 10000.0;
+    double capacidad_maxima = 1000.0;                      // Capacidad máxima en kg
+    double capacidad_restante = 1000.0;
     // double tiempo_disponible = 500.0;
     // double tiempo_restante = 500.0;
     double costo_total = 0.0;
-<<<<<<< HEAD
     double costo_camino_camion  = 0.0;                      // Costo total del camino recorrido por camión
     double costo_total_camino_camion = 0.0;
-=======
-    double costo_camino_camion  = 0.0;
->>>>>>> 187fbe5319e0299633796800a5f79f0351c7be49
 
 };
 
