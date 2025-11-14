@@ -12,24 +12,32 @@ Compilar en sistemas UNIX con:
 
 Ejecucion basica con:
 
-`./RESCOL Instancias/others/L00.txt --metodo 0 --eval-max 3000 --num-hormigas 20 --epocas 1 --matriz-secundaria --beta0 --usar-evaluaciones --usar-limitador --valor-limitador 2 --silence --random-seed --dir-salida ./resultados --prefijo-salida nuevos --rescol `
-
+`./RESCOL Instancias/others/M00.txt --metodo 0 --eval-max 3000 --num-hormigas 20 --epocas 1 --matriz-secundaria --beta0 --usar-evaluaciones --usar-limitador --valor-limitador 2 --silence --random-seed --dir-salida ./resultados --prefijo-salida nuevos --rescol `
 
 Ejecutar con 10 segundos configurados:
 
-`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 4 --salida-dijkstra --beta0 --alfa 4.29 --rho 0.29 --tau-as 5.07 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/M00.txt --metodo 0 --num-hormigas 4 --salida-dijkstra --beta0 --alfa 4.29 --rho 0.29 --tau-as 5.07 --valor-limitador 4 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 10  --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 Ejecutar con 30 segundos configurados:
 
-`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 23 --salida-dijkstra --beta0 --alfa 4.11 --rho 0.3 --tau-as 3.57 --valor-limitador 2 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 30  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/M00.txt --metodo 0 --num-hormigas 23 --salida-dijkstra --beta0 --alfa 4.11 --rho 0.3 --tau-as 3.57 --valor-limitador 2 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 30  --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 Ejecutar con 1 minuto configurado:
 
-`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 16 --salida-dijkstra --beta0 --alfa 2.79 --rho 0.29 --tau-as 2.39 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 60  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/M00.txt --metodo 0 --num-hormigas 16 --salida-dijkstra --beta0 --alfa 2.79 --rho 0.29 --tau-as 2.39 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 60  --dir-salida ./resultados --prefijo-salida nuevos --rescol`
 
 
 Ejecutar con 5 minutos configurado:
-`./RESCOL Instancias/others/L00.txt --metodo 0 --num-hormigas 26 --salida-dijkstra --beta0 --alfa 1.81 --rho 0.22 --tau-as 2.14 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 300  --silence false --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+`./RESCOL Instancias/others/M00.txt --metodo 0 --num-hormigas 26 --salida-dijkstra --beta0 --alfa 1.81 --rho 0.22 --tau-as 2.14 --valor-limitador 3 --epocas 1 --valor-sin-nuevas-visitas 1 --usar-tiempo --tiempo-max 300  --dir-salida ./resultados --prefijo-salida nuevos --rescol`
+
+## Visualizador de recorridos de camiones
+
+Ejecución básica del script `utils/VisualizadorCamiones.py` indicando la instancia y los archivos generados por el programa :
+
+   python utils/VisualizadorCamiones.py Instancias/others/L00.txt --camino resultados/nuevos_camino.txt --mapa resultados/nuevos_mapa.txt --salida visualizaciones_camiones
+ 
+   * `--camino` y `--mapa` apuntan a los archivos `*_camino.txt` y `*nuevos_mapa.txt` producidos por RESCOL.
+   * `--salida` indica la carpeta donde se escribirán las imágenes (por defecto `visualizaciones_camiones`).
 
 ## Parámetros
 ### Entrada y salida
