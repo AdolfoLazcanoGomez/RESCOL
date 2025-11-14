@@ -32,8 +32,8 @@ struct Camion
     double longitud_camino_salida = 0.0;
     double longitud_camino_final = 0.0;
 
-    double capacidad_maxima = 900.0;
-    double capacidad_restante = 900.0;
+    double capacidad_maxima = 10000.0;
+    double capacidad_restante = 10000.0;
     double tiempo_disponible = 500.0;
     double tiempo_restante = 500.0;
     double costo_total = 0.0;

@@ -23,14 +23,21 @@
 
   <div id="controls">
     <input type="file" id="fileInst" accept=".txt">
+    <!-- <input type="file" id="fileSol" accept=".txt">
+    <button id="btnLoad">Cargar ruta</button> -->
     <input type="file" id="fileSol" accept=".txt">
-    <button id="btnLoad">Cargar ruta</button>
+    <button id="btnLoad">Cargar rutas</button>
+    <label for="truckSelect" style="margin-left:10px;">Camión:</label>
+    <select id="truckSelect">
+      <option value="" selected>Selecciona un camión</option>
+    </select>
     <br><br>
     <button id="btnBack">Atrás</button>
     <button id="btnNext">Siguiente</button>
     <button id="btnReset">Reiniciar</button>
     <button id="btnAll">Todo</button>
-    <span id="status">Paso 0 / 0</span>
+    <!-- <span id="status">Paso 0 / 0</span> -->
+     <span id="status">Sin camión seleccionado</span>
   </div>
 
   <svg width="800" height="600"></svg>
@@ -64,7 +71,13 @@
       .append("path")
         .attr("d", "M0,-5L10,0L0,5");
 
-    let nodes = [], links = [], route = [];
+    // let nodes = [], links = [], route = [];
+    // let step = 0, visitCount = {};
+    let nodes = [], links = [];
+    let nodeSelection = null, linkSelection = null, overlayLayer = null;
+    let routesByTruck = {};
+    let selectedTruck = null;
+    let route = [];
     let step = 0, visitCount = {};
 
     function parseInstance(text) {
@@ -96,12 +109,25 @@
       return { aristas_req, aristas_noreq, nodos_inicio, nodos_termino };
     }
 
-    function parseSolution(text) {
+    // function parseSolution(text) {
+    //   let ruta = [];
+    //   let lectura = false;
+    //   for (let ln of text.split("\n")) {
+    //     if (lectura) {
+    //       let v = parseInt(ln);
+    //       if (!isNaN(v)) ruta.push(v);
+    //     }
+    //     if (ln.startsWith("La soluci")) lectura = true;
+    //   }
+    //   return ruta;
+    // }
+
+    function parseLegacySolution(text) {
       let ruta = [];
       let lectura = false;
       for (let ln of text.split("\n")) {
         if (lectura) {
-          let v = parseInt(ln);
+          const v = parseInt(ln, 10);
           if (!isNaN(v)) ruta.push(v);
         }
         if (ln.startsWith("La soluci")) lectura = true;
@@ -109,20 +135,190 @@
       return ruta;
     }
 
+    function parseTruckRoutes(text) {
+      const rutas = {};
+      let camionActual = null;
+      let buffer = [];
+      const patronHeader = /^camion\s+(\d+)\s*:(.*)$/i;
+      const patronNumero = /-?\d+/g;
+
+      function guardarCamion() {
+        if (camionActual === null) return;
+        const numeros = (buffer.join(" ").match(patronNumero) || []).map(Number);
+        rutas[camionActual] = numeros;
+        buffer = [];
+      }
+
+      for (let linea of text.split(/\r?\n/)) {
+        linea = linea.trim();
+        if (!linea) continue;
+
+        const match = linea.match(patronHeader);
+        if (match) {
+          guardarCamion();
+          camionActual = parseInt(match[1], 10);
+          buffer.push(match[2] || "");
+        } else {
+          buffer.push(linea);
+        }
+      }
+
+      guardarCamion();
+      const ids = Object.keys(rutas);
+      if (ids.length === 0) {
+        const legacy = parseLegacySolution(text);
+        if (legacy.length) rutas[1] = legacy;
+      }
+      return rutas;
+    }
+
+    // document.getElementById("btnLoad").onclick = () => {
+    //   let f1 = document.getElementById("fileInst").files[0];
+    //   let f2 = document.getElementById("fileSol").files[0];
+    //   if(!f1||!f2) return alert("Selecciona ambos ficheros");
+    //   Promise.all([f1.text(), f2.text()]).then(([ti, ts])=>{
+    //     let inst = parseInstance(ti);
+    //     route = parseSolution(ts);
+    //     buildGraph(inst);
+    //     resetRoute();
+    //   });
+    // };
+
     document.getElementById("btnLoad").onclick = () => {
       let f1 = document.getElementById("fileInst").files[0];
       let f2 = document.getElementById("fileSol").files[0];
       if(!f1||!f2) return alert("Selecciona ambos ficheros");
       Promise.all([f1.text(), f2.text()]).then(([ti, ts])=>{
         let inst = parseInstance(ti);
-        route = parseSolution(ts);
+        routesByTruck = parseTruckRoutes(ts);
         buildGraph(inst);
-        resetRoute();
+        populateTruckSelect();
+        const ids = Object.keys(routesByTruck).map(Number).sort((a,b)=>a-b);
+        if (ids.length === 1) {
+          selectTruck(ids[0]);
+        } else {
+          resetSelection();
+        }
       });
     };
 
+    function populateTruckSelect() {
+      const select = document.getElementById("truckSelect");
+      const previous = select.value;
+      const opciones = Object.keys(routesByTruck).map(Number).sort((a,b)=>a-b);
+      select.innerHTML = "";
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Selecciona un camión";
+      placeholder.selected = previous === "";
+      select.appendChild(placeholder);
+
+      for (const id of opciones) {
+        const option = document.createElement("option");
+        option.value = id;
+        option.textContent = `Camión ${id}`;
+        if (previous !== "" && Number(previous) === id) {
+          option.selected = true;
+          placeholder.selected = false;
+        }
+        select.appendChild(option);
+      }
+
+    }
+
+    document.getElementById("truckSelect").onchange = (event) => {
+      const value = event.target.value;
+      if (!value) {
+        resetSelection();
+        return;
+      }
+      selectTruck(parseInt(value, 10));
+    };
+
+    function resetSelection() {
+      selectedTruck = null;
+      route = [];
+      const select = document.getElementById("truckSelect");
+      if (select.options.length) select.selectedIndex = 0;
+      resetRoute();
+    }
+
+    function selectTruck(id) {
+      if (!routesByTruck[id] || routesByTruck[id].length < 2) {
+        alert("La ruta del camión seleccionado no es válida.");
+        return;
+      }
+      selectedTruck = id;
+      route = routesByTruck[id];
+      document.getElementById("truckSelect").value = String(id);
+      resetRoute();
+    }
+
     function buildGraph({aristas_req, aristas_noreq, nodos_inicio, nodos_termino}) {
       // Limpiar gráfico previo
+      // g.selectAll("*").remove();
+      // nodes = [];
+      // links = aristas_req.concat(aristas_noreq);
+      // const nodeSet = new Set();
+      // links.forEach(e=>{ nodeSet.add(e.source); nodeSet.add(e.target); });
+      // nodes = Array.from(nodeSet).map(id=>({
+      //   id,
+      //   group: nodos_inicio.includes(id) ? "start" :
+      //          nodos_termino.includes(id)? "end" : "normal"
+      // }));
+
+      // const sim = d3.forceSimulation(nodes)
+      //   .force("link", d3.forceLink(links).id(d=>d.id).distance(100))
+      //   .force("charge", d3.forceManyBody().strength(-300))
+      //   .force("center", d3.forceCenter(width/2, height/2));
+
+      // const pairCount = {};
+      // links.forEach(l=>{
+      //   let key = [l.source,l.target].sort().join("-");
+      //   pairCount[key] = (pairCount[key]||0) + 1;
+      // });
+
+      // // Dibujar enlaces
+      // const linkSel = g.append("g").selectAll("path")
+      //   .data(links)
+      //   .enter().append("path")
+      //     .attr("class", d => "link " + (d.req?"req":"noreq"))
+      //     .attr("marker-end", d=>"url(#arrow-" + (d.req?"req":"noreq") +")");
+
+      // // Dibujar nodos
+      // const nodeSel = g.append("g").selectAll("circle")
+      //   .data(nodes)
+      //   .enter().append("circle")
+      //     .attr("r", 8)
+      //     .attr("class", d=>"node " + d.group)
+      //     .call(d3.drag()
+      //       .on("start", dragstarted)
+      //       .on("drag", dragged)
+      //       .on("end", dragended));
+
+      // // Etiquetas
+      // const labelSel = g.append("g").selectAll("text")
+      //   .data(nodes)
+      //   .enter().append("text")
+      //     .attr("dy", -12)
+      //     .attr("text-anchor", "middle")
+      //     .text(d=>d.id)
+      //     .style("font-size","10px");
+
+      // sim.on("tick", () => {
+      //   nodeSel.attr("cx", d=>d.x).attr("cy", d=>d.y);
+      //   labelSel.attr("x", d=>d.x).attr("y", d=>d.y);
+      //   linkSel.attr("d", d => {
+      //     const dx = d.target.x - d.source.x;
+      //     const dy = d.target.y - d.source.y;
+      //     const dr = pairCount[[d.source.id,d.target.id].sort().join("-")]>1
+      //              ? (d.source.id < d.target.id ? 30 : -30)
+      //              : 0;
+      //     return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,${dr>0?1:0} ${d.target.x},${d.target.y}`;
+      //   });
+      // });
+
       g.selectAll("*").remove();
       nodes = [];
       links = aristas_req.concat(aristas_noreq);
@@ -146,14 +342,15 @@
       });
 
       // Dibujar enlaces
-      const linkSel = g.append("g").selectAll("path")
+      linkSelection = g.append("g").selectAll("path")
         .data(links)
         .enter().append("path")
           .attr("class", d => "link " + (d.req?"req":"noreq"))
-          .attr("marker-end", d=>"url(#arrow-" + (d.req?"req":"noreq") +")");
+          .attr("marker-end", d=>"url(#arrow-" + (d.req?"req":"noreq") +")")
+          .attr("data-default-marker", d=>"url(#arrow-" + (d.req?"req":"noreq") +")");
 
       // Dibujar nodos
-      const nodeSel = g.append("g").selectAll("circle")
+      nodeSelection = g.append("g").selectAll("circle")
         .data(nodes)
         .enter().append("circle")
           .attr("r", 8)
@@ -172,10 +369,12 @@
           .text(d=>d.id)
           .style("font-size","10px");
 
+      overlayLayer = g.append("g").attr("class", "overlay-layer");
+
       sim.on("tick", () => {
-        nodeSel.attr("cx", d=>d.x).attr("cy", d=>d.y);
+        nodeSelection.attr("cx", d=>d.x).attr("cy", d=>d.y);
         labelSel.attr("x", d=>d.x).attr("y", d=>d.y);
-        linkSel.attr("d", d => {
+        linkSelection.attr("d", d => {
           const dx = d.target.x - d.source.x;
           const dy = d.target.y - d.source.y;
           const dr = pairCount[[d.source.id,d.target.id].sort().join("-")]>1
@@ -183,6 +382,8 @@
                    : 0;
           return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,${dr>0?1:0} ${d.target.x},${d.target.y}`;
         });
+        overlayLayer.selectAll("path")
+          .attr("d", d => `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}`);
       });
 
       function dragstarted(event,d){ if(!event.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; }
@@ -190,42 +391,121 @@
       function dragended(event,d){ if(!event.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }
     }
 
-    function updateStatus() {
-      document.getElementById("status")
-        .textContent = `Paso ${step} / ${route.length}`;
-    }
+    // function updateStatus() {
+    //   document.getElementById("status")
+    //     .textContent = `Paso ${step} / ${route.length}`;
+    // }
+
+    // function resetRoute() {
+    //   step = 0;
+    //   visitCount = {};
+    //   g.selectAll("path.link.path-first, path.link.path-repeat").remove();
+    //   g.selectAll("circle.current").classed("current", false);
+    //   updateStatus();
+    // }
+
+    // function updateStatus() {
+    //   const totalPasos = Math.max(route.length - 1, 0);
+    //   const texto = selectedTruck ? `Camión ${selectedTruck} - Paso ${step} / ${totalPasos}` : "Sin camión seleccionado";
+    //   document.getElementById("status").textContent = texto;
+    // }
+
+    // function drawStep() {
+    //   if (step >= route.length-1) return;
+    //   const u = route[step], v = route[step+1];
+    //   const key = [u,v].sort().join("-");
+    //   visitCount[key] = (visitCount[key]||0) + 1;
+    //   const first = visitCount[key]===1;
+
+    //   // Enlace resaltado
+    //   g.append("path")
+    //     .datum({source:{id:u}, target:{id:v}})
+    //     .attr("class", "link path-" + (first?"first":"repeat"))
+    //     .attr("marker-end", "url(#arrow-path)")
+    //     .attr("d", d => {
+    //       const src = nodes.find(n=>n.id===d.source.id);
+    //       const tgt = nodes.find(n=>n.id===d.target.id);
+    //       return `M${src.x},${src.y} L${tgt.x},${tgt.y}`;
+    //     });
+
+    //   // Nodo actual
+    //   g.selectAll("circle.current").classed("current", false);
+    //   g.selectAll("circle")
+    //     .filter(d=>d.id===route[step+1])
+    //     .classed("current", true);
+
+    //   step++;
+    //   updateStatus();
+    // }
 
     function resetRoute() {
       step = 0;
       visitCount = {};
-      g.selectAll("path.link.path-first, path.link.path-repeat").remove();
-      g.selectAll("circle.current").classed("current", false);
+      if (linkSelection) {
+        linkSelection
+          .classed("path-first", false)
+          .classed("path-repeat", false)
+          .attr("marker-end", function() {
+            return this.getAttribute("data-default-marker") || d3.select(this).attr("data-default-marker");
+          });
+      }
+      if (nodeSelection) {
+        nodeSelection.classed("current", false);
+      }
+      if (overlayLayer) {
+        overlayLayer.selectAll("path").remove();
+      }
+      if (route.length && nodeSelection) {
+        nodeSelection
+          .filter(d=>d.id===route[0])
+          .classed("current", true);
+      }
       updateStatus();
     }
 
+    function getNodeId(node) {
+      return typeof node === "object" && node !== null ? node.id : node;
+    }
+
     function drawStep() {
-      if (step >= route.length-1) return;
+      if (!route.length || step >= route.length-1) return;
       const u = route[step], v = route[step+1];
-      const key = [u,v].sort().join("-");
+      const key = `${u}->${v}`;
       visitCount[key] = (visitCount[key]||0) + 1;
       const first = visitCount[key]===1;
 
-      // Enlace resaltado
-      g.append("path")
-        .datum({source:{id:u}, target:{id:v}})
-        .attr("class", "link path-" + (first?"first":"repeat"))
-        .attr("marker-end", "url(#arrow-path)")
-        .attr("d", d => {
-          const src = nodes.find(n=>n.id===d.source.id);
-          const tgt = nodes.find(n=>n.id===d.target.id);
-          return `M${src.x},${src.y} L${tgt.x},${tgt.y}`;
-        });
+      let highlighted = false;
+      if (linkSelection) {
+        linkSelection
+          .filter(d => getNodeId(d.source) === u && getNodeId(d.target) === v)
+          .each(function() {
+            d3.select(this)
+              .classed("path-first", first)
+              .classed("path-repeat", !first)
+              .attr("marker-end", "url(#arrow-path)");
+            highlighted = true;
+          });
+      }
+
+      if (!highlighted && overlayLayer) {
+        const src = nodes.find(n=>n.id===u);
+        const tgt = nodes.find(n=>n.id===v);
+        if (src && tgt) {
+          overlayLayer.append("path")
+            .datum({source:src, target:tgt})
+            .attr("class", "link path-" + (first?"first":"repeat"))
+            .attr("marker-end", "url(#arrow-path)")
+            .attr("d", d => `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}`);
+        }
+      }
 
       // Nodo actual
-      g.selectAll("circle.current").classed("current", false);
-      g.selectAll("circle")
-        .filter(d=>d.id===route[step+1])
-        .classed("current", true);
+      if (nodeSelection) {
+        nodeSelection.classed("current", false);
+        nodeSelection
+          .filter(d=>d.id===route[step+1])
+          .classed("current", true);
+      }
 
       step++;
       updateStatus();
@@ -239,7 +519,11 @@
       }
     };
     document.getElementById("btnReset").onclick = resetRoute;
-    document.getElementById("btnAll").onclick = () => { while (step < route.length-1) drawStep(); };
+    // document.getElementById("btnAll").onclick = () => { while (step < route.length-1) drawStep(); };
+    document.getElementById("btnAll").onclick = () => {
+      if (!route.length) return;
+      while (step < route.length-1) drawStep();
+    };
   </script>
 
 </body>
