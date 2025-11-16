@@ -788,7 +788,7 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
 
         if (hormiga.feromonas_locales[arco].cantidad < umbral_inferior) hormiga.feromonas_locales[arco].cantidad = umbral_inferior;
         else hormiga.feromonas_locales[arco].cantidad *= (1 - rho);
-        //hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recoleccion;
+        hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recoleccion;
     }
 
     arco->veces_recorrida += 1;
@@ -944,7 +944,7 @@ void ACO::buscarDijkstra(Hormiga &hormiga, int &aux)
             hormiga.vector_camiones[aux]->camino_salida.push_back(*arco);
             hormiga.vector_camiones[aux]->longitud_camino_salida += 1;
             hormiga.nodo_actual = arco->destino;
-            hormiga.vector_camiones[aux]->costo_camino_camion += (arco->costo_recorrido);
+            hormiga.vector_camiones[aux]->costo_camino_camion += arco->costo_recorrido;
             if (enNodoTerminal(hormiga)) calcular_costo_camino_camion(hormiga);
         }
     }
