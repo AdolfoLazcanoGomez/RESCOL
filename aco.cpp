@@ -804,7 +804,6 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
         {
             hormiga.feromonas_locales[arco].cantidad *= (1 - rho);
         }
-        hormiga.vector_camiones[aux]->costo_total += arco->costo_recoleccion;
     }
     else
     {
@@ -816,7 +815,6 @@ void ACO::visitar(Hormiga &hormiga, Nodo *nodo, int &aux)
         {
             hormiga.feromonas_locales[arco].cantidad *= (1 - rho_secundario);
         }
-        hormiga.vector_camiones[aux]->costo_total += arco->costo_recoleccion;
     }
     return;
 }
