@@ -6,7 +6,7 @@
 
 # Obtener rutas relativas al directorio del script
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-PROJECT_ROOT=$(realpath "$SCRIPT_DIR/..")
+PROJECT_ROOT=$(realpath "$SCRIPT_DIR/../../..")
 EXECUTABLE="$PROJECT_ROOT/RESCOL"
 INSTANCES_DIR="$PROJECT_ROOT/Instancias/CN"
 MULTIPLICITY_DIR="$SCRIPT_DIR/multiplicidad"
