@@ -25,7 +25,7 @@ if [[ -z "$PROJECT_ROOT" ]]; then
 fi
 
 EXECUTABLE="$PROJECT_ROOT/RESCOL"
-DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/QN"
+DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/test"
 INSTANCES_DIR="${INSTANCES_DIR:-$DEFAULT_INSTANCES_DIR}"
 if [[ ! -d "$INSTANCES_DIR" ]]; then
   echo "No se encontró el directorio de instancias: $INSTANCES_DIR" >&2
@@ -46,7 +46,7 @@ TAU="2.06"
 #USAR_ITERACIONES="--usar-iteraciones"
 USAR_LIMITADOR="--usar-limitador"
 USAR_TIEMPO="--usar-tiempo"
-TIEMPO_MAX="90"
+TIEMPO_MAX="30"
 VALOR_LIMITADOR="1"
 SILENCE="--silence"
 #DIR_SALIDA="./resultados"
