@@ -25,7 +25,7 @@ if [[ -z "$PROJECT_ROOT" ]]; then
 fi
 
 EXECUTABLE="$PROJECT_ROOT/RESCOL"
-DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/CN"
+DEFAULT_INSTANCES_DIR="$PROJECT_ROOT/Instancias/test"
 INSTANCES_DIR="${INSTANCES_DIR:-$DEFAULT_INSTANCES_DIR}"
 if [[ ! -d "$INSTANCES_DIR" ]]; then
   echo "No se encontró el directorio de instancias: $INSTANCES_DIR" >&2
