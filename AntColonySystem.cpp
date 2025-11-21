@@ -144,7 +144,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
                 { // si es bidireccional, se comprueba que el siguiente arco no sea una vuelta en U o si es la unica opcion, en este ultimo caso, se agrega a las probabilidades de paso
                     if ((hormiga.copia_camino_tour.back().id != i.first->arco_reciproco->id) || (grafo->informacion_heuristica[hormiga.nodo_actual->id].size() == 1))
                     {
-                        if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante && i.first->costo_recorrido <= hormiga.vector_camiones[aux]->tiempo_restante){
+                        if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante){
                             Arco *arco = nullptr;
                             arco = i.first;
                             // if (arco->veces_recorrida <= 4)
@@ -157,7 +157,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
                                     cout << "arco:" << arco->origen->id << " " << arco->destino->id << " tau_eta: " << tau_eta << endl;
                             }
                         } else {
-                            if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante || i.first->costo_recorrido > hormiga.vector_camiones[aux]->tiempo_restante){
+                            if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante){
                                 break; //return nodo
                             }
                         }
@@ -165,7 +165,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
                 }
                 else
                 { // si no es bidireccional, se agrega a las probabilidades de paso
-                    if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante && i.first->costo_recorrido <= hormiga.vector_camiones[aux]->tiempo_restante){
+                    if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante){
                         Arco *arco = nullptr;
                         arco = i.first;
                         // if (arco->veces_recorrida <= 4)
@@ -177,7 +177,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
                             probabilidad[arco] = tau_eta;
                         }
                     } else {
-                        if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante || i.first->costo_recorrido > hormiga.vector_camiones[aux]->tiempo_restante){
+                        if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante){
                             break; //return nodo
                         }
                     }
@@ -186,7 +186,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
             else
             {
                 // si el camino esta vacio, simplemente se agrega el primero que encuentre sin comprobaciones extra
-                if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante && i.first->costo_recorrido <= hormiga.vector_camiones[aux]->tiempo_restante){
+                if (i.first->costo_recoleccion <= hormiga.vector_camiones[aux]->capacidad_restante){
                     Arco *arco = nullptr;
                     arco = i.first;
                     cantidad = hormiga.feromonas_locales[arco].cantidad;
@@ -197,7 +197,7 @@ Nodo *AntColonySystem::eligeSiguiente(Hormiga &hormiga, int &aux)
                         cout << "arco:" << arco->origen->id << " " << arco->destino->id << " tau_eta: " << tau_eta << endl;
                     }
                 } else {
-                    if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante || i.first->costo_recorrido > hormiga.vector_camiones[aux]->tiempo_restante){
+                    if (i.first->costo_recoleccion > hormiga.vector_camiones[aux]->capacidad_restante){
                         break; //return nodo
                     }
                 }

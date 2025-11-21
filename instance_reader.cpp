@@ -456,7 +456,17 @@ Graph leerInstancia(const std::string &nombre_archivo,
         }
 
     // std::cout << "Agregando nodo inicial: " << nodo << std::endl;
-    g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
+    //g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
+        if (g.nodos.count(nodo) == 0)
+        {
+            std::cerr << "[ERROR] Nodo inicial " << nodo
+                      << " no existe en el grafo (revisar la cabecera NODOS_INICIALES y VERTICES)"
+                      << std::endl;
+            return Graph();
+        }
+
+        // std::cout << "Agregando nodo inicial: " << nodo << std::endl;
+        g.metadatos.nodos_iniciales.push_back(g.nodos[nodo]);
     }
 
     // Saltarse header Terminal
@@ -474,6 +484,13 @@ Graph leerInstancia(const std::string &nombre_archivo,
             {
                 // Error de formato
                 std::cerr << "Error en el formato del archivo" << std::endl;
+                return Graph();
+            }
+            if (g.nodos.count(nodo) == 0)
+            {
+                std::cerr << "[ERROR] Nodo terminal " << nodo
+                          << " no existe en el grafo (revisar la cabecera NODOS_TERMINO y VERTICES)"
+                          << std::endl;
                 return Graph();
             }
             g.metadatos.nodos_termino.push_back(g.nodos[nodo]);
