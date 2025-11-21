@@ -14,7 +14,7 @@ MULTIPLICITY_DIR="$SCRIPT_DIR/multiplicidad"
 METODO="0"
 #ITER_MAX="1000"
 NUM_HORMIGAS="26"
-EPOCAS="1"
+EPOCAS="3"
 salida_Floyd_Warshall="salida-Floyd-Warshall"
 
 BETA0="--beta0"
